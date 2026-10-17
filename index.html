@@ -75,7 +75,29 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 .work p{color:var(--muted);font-size:.92rem}
 
 /* Patents */
-#patents{background:var(--soft)}
+#research{background:var(--soft)}
+.rtabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.rtab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 18px;border-radius:30px;font:600 .95rem Inter,sans-serif;cursor:pointer}
+.rtab:hover{border-color:var(--accent)}
+.rtab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.rtab:focus-visible{outline:3px solid #3fc1e8;outline-offset:2px}
+.rpanel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;display:grid;gap:26px}
+.rpanel h3{font-family:"Playfair Display",serif;font-size:1.6rem}
+.rpanel h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.rpanel .lead-p{max-width:75ch;color:var(--ink)}
+.rpanel ul.rp{list-style:none;padding:0;display:grid;gap:10px}
+.rpanel ul.rp li{border-left:3px solid var(--accent);padding:4px 0 4px 14px}
+.rpanel ul.rp b{display:block}
+.rpanel ul.rp span{color:var(--muted);font-size:.88rem}
+.rpanel .tool{display:inline-block;margin-top:4px;color:var(--accent);font-weight:600}
+.dtable{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.dtable table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:620px}
+.dtable th,.dtable td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.dtable th{background:var(--soft);font-weight:600}
+.dtable tr:last-child td{border-bottom:0}
+.dtable a{color:var(--accent);font-weight:600;white-space:nowrap}
+.note{font-size:.85rem;color:var(--muted)}
+#patents{background:#fff}
 .patent{background:#fff;border-left:4px solid var(--accent);border-radius:10px;padding:24px}
 .patent .no{font-size:.8rem;color:var(--muted)}
 
@@ -97,7 +119,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   <div class="wrap nav">
     <a class="brand" href="https://www.mnit.ac.in" target="_blank"><img src="images/mnit_logo.png" alt="MNIT Jaipur" style="width:56px;height:56px"></a>
     <nav class="links">
-      <a href="#about">About</a><a href="#papers">Papers</a><a href="#work">Our Work</a>
+      <a href="#about">About</a><a href="#papers">Papers</a><a href="#work">Our Work</a><a href="#research">Research</a>
       <a href="#patents">Patents</a><a href="#team">Team</a>
     </nav>
     <a class="brand" href="#"><span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">M<span style="color:var(--accent)">AI</span>TRI</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted);margin-right:-.35em">LAB</span></span><img src="images/maitri_logo.png" alt="MAITRI Lab logo" style="width:58px;height:58px"></a>
@@ -141,6 +163,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
     <h2>Our Work</h2>
     <p class="sub">Research themes our members lead.</p>
     <div class="grid" id="workList"></div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research Areas</h2>
+    <p class="sub">Four application areas, one mathematical core: fractional calculus, optimisation and statistics for AI.</p>
+    <div class="rtabs" role="tablist" id="rtabs"></div>
+    <div id="rpanel"></div>
   </div>
 </section>
 
@@ -230,6 +261,65 @@ patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class=
 const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;
 teamList.innerHTML=team.map(card).join("");
 alumniList.innerHTML=alumni.map(card).join("");
+
+// Research areas: overview, lab papers, public datasets (links go to each dataset's original source)
+const areas=[
+ {id:"retina",name:"Retinal Diseases",
+  text:"Diabetic retinopathy is a leading cause of preventable blindness. We design fractional-order operators and deep networks for retinal vessel segmentation, lesion detection and DR grading from colour fundus photographs, and deploy them for screening through ChakshuRakshak AI.",
+  tool:["ChakshuRakshak AI","https://www.chakshurakshakai.com"],
+  papers:[["F2D-RetinaNet: a feature-to-decision dual-path network with fractional operators for retinal disease detection and grading","Scientific Reports (Nature), 2026","https://doi.org/10.1038/s41598-026-75441-z"],
+   ["A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","Fractal and Fractional (MDPI), 2026","https://doi.org/10.3390/fractalfract10040246"],
+   ["A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","IJMEMS, 2026","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
+   ["An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional Order Optimisation","PReMI 2026, IIT Delhi",""],
+   ["Fractional Frangi: Retinal Vessel Enhancement Filtering","SoCTA 2024",""],
+   ["Extraction of Retinal Vasculature With Fractional Fuzzy Logic","MIND 2024",""]],
+  data:[["IDRiD","Colour fundus","516 images; DR & DME grades, pixel-level lesion masks, optic disc / fovea","https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid"],
+   ["DDR","Colour fundus","13,673 images; DR grading, 757 with lesion masks","https://github.com/nkicsl/DDR-dataset"],
+   ["MESSIDOR-2","Colour fundus","1,748 images for DR screening","https://www.adcis.net/en/third-party/messidor2/"],
+   ["APTOS 2019","Colour fundus","3,662 labelled images, 5 DR grades","https://www.kaggle.com/c/aptos2019-blindness-detection"],
+   ["EyePACS (Kaggle DR)","Colour fundus","~88,000 images, 5 DR grades","https://www.kaggle.com/c/diabetic-retinopathy-detection"],
+   ["DRIVE","Colour fundus","40 images with manual vessel segmentations","https://drive.grand-challenge.org/"],
+   ["e-ophtha","Colour fundus","Microaneurysm and exudate annotations","https://www.adcis.net/en/third-party/e-ophtha/"]]},
+ {id:"silicosis",name:"Silicosis",
+  text:"Silicosis is an incurable occupational lung disease common among stone and mining workers in Rajasthan. We build fractional-optimiser deep learning models that screen chest X-rays for silicosis and pneumoconiosis, packaged as the SilicoShield tool for radiologists.",
+  tool:["SilicoShield","https://silicoshield-frontend.vercel.app"],
+  papers:[["A Fractional Computation Based Deep Learning Framework for Silicosis Detection","ICCS 2025, NTU Singapore (Springer)",""],
+   ["Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","Engineering Applications of AI (Elsevier), 2024","https://doi.org/10.1016/j.engappai.2024.108516"],
+   ["Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","Chaos, Solitons and Fractals (Elsevier), 2025","https://doi.org/10.1016/j.chaos.2025.116009"]],
+  data:[["NIH ChestX-ray14","Chest X-ray","112,120 frontal X-rays, 14 thoracic disease labels","https://nihcc.app.box.com/v/ChestXray-NIHCC"],
+   ["VinDr-CXR","Chest X-ray","18,000 X-rays with radiologist bounding boxes","https://physionet.org/content/vindr-cxr/1.0.0/"],
+   ["CheXpert","Chest X-ray","224,316 X-rays, 14 observations","https://stanfordmlgroup.github.io/competitions/chexpert/"],
+   ["Shenzhen & Montgomery","Chest X-ray","Tuberculosis X-ray sets from the U.S. National Library of Medicine","https://lhncbc.nlm.nih.gov/LHC-publications/pubs/TuberculosisChestXrayImageDataSets.html"]],
+  note:"Large public datasets labelled specifically for silicosis are scarce; general chest X-ray sets are used for pre-training and transfer."},
+ {id:"dengue",name:"Dengue Modelling",
+  text:"We model dengue transmission with integer- and Caputo fractional-order compartmental systems whose memory captures delayed infection dynamics, couple them with climate drivers and Bayesian decision support, and forecast outbreaks with fractional physics-informed neural networks.",
+  papers:[["A climate-informed dengue transmission model with Bayesian decision support","Acta Tropica (Elsevier), 2026","https://doi.org/10.1016/j.actatropica.2026.108037"],
+   ["A hybrid integer-Caputo fractional order dengue transmission model: Parameter optimization and empirical study with real-world data","Mathematics and Computers in Simulation (Elsevier), 2025","https://doi.org/10.1016/j.matcom.2025.11.040"],
+   ["A Fractional Physics-Informed Neural Network With Ensemble Learning for Dengue Forecasting","ICCS 2026, Hamburg (Springer)",""],
+   ["Mathematical Modelling and Analysis of Dengue Transmission Dynamics","Procedia Computer Science, 2024","https://doi.org/10.1016/j.procs.2024.04.053"]],
+  data:[["OpenDengue","Case counts","Global national and sub-national dengue case data","https://opendengue.org/"],
+   ["NCVBDC India","Case counts","State-wise dengue cases and deaths, Govt. of India","https://ncvbdc.mohfw.gov.in/"],
+   ["DengAI (DrivenData)","Cases + climate","Weekly cases with climate covariates, San Juan and Iquitos","https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/"],
+   ["NASA POWER","Climate","Daily temperature, rainfall and humidity for any location","https://power.larc.nasa.gov/"]]},
+ {id:"llm",name:"Language Models",
+  text:"We study how reliable transformer language models are: how BERT-family and larger models behave on question answering when inputs are perturbed or out of distribution, and how to measure and improve their trustworthiness for real use, including medical text.",
+  papers:[["Assessing reliability of BERT-based models on question answering tasks","J. Experimental & Theoretical AI (Taylor & Francis), 2026","https://doi.org/10.1080/0952813X.2026.2716084"]],
+  data:[["SQuAD","Reading comprehension","100,000+ questions on Wikipedia (v2.0 adds unanswerable)","https://rajpurkar.github.io/SQuAD-explorer/"],
+   ["Natural Questions","Open-domain QA","Real Google search queries with Wikipedia answers","https://ai.google.com/research/NaturalQuestions"],
+   ["TriviaQA","Reading comprehension","650,000 question-answer-evidence triples","https://nlp.cs.washington.edu/triviaqa/"],
+   ["HotpotQA","Multi-hop QA","113,000 questions needing reasoning over several documents","https://hotpotqa.github.io/"],
+   ["MedQA","Medical QA","Medical licensing exam questions (USMLE and others)","https://github.com/jind11/MedQA"],
+   ["PubMedQA","Biomedical QA","Yes/no/maybe questions from PubMed abstracts","https://pubmedqa.github.io/"],
+   ["BioASQ","Biomedical QA","Benchmark challenges for biomedical semantic QA","http://bioasq.org/"]]}
+];
+const showArea=k=>{const a=areas.find(x=>x.id===k);
+ [...rtabs.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
+ rpanel.innerHTML=`<div class="rpanel" role="tabpanel"><div><h3>${a.name}</h3><p class="lead-p">${a.text}</p>${a.tool?`<a class="tool" href="${a.tool[1]}" target="_blank" rel="noopener">Try ${a.tool[0]} →</a>`:""}</div>
+ <div><h4>Our papers</h4><ul class="rp">${a.papers.map(([t,v,d])=>`<li><b>${d?`<a href="${d}" target="_blank" rel="noopener" style="color:inherit">${t}</a>`:t}</b><span>${v}</span></li>`).join("")}</ul></div>
+ <div><h4>Public datasets</h4><div class="dtable"><table><thead><tr><th>Dataset</th><th>Type</th><th>What it contains</th><th>Source</th></tr></thead><tbody>${a.data.map(([n,t,c,u])=>`<tr><td><b>${n}</b></td><td>${t}</td><td>${c}</td><td><a href="${u}" target="_blank" rel="noopener">Original repository ↗</a></td></tr>`).join("")}</tbody></table></div>${a.note?`<p class="note" style="margin-top:8px">${a.note}</p>`:""}</div></div>`;};
+rtabs.innerHTML=areas.map(a=>`<button class="rtab" role="tab" data-k="${a.id}">${a.name}</button>`).join("");
+rtabs.onclick=e=>{const b=e.target.closest(".rtab");if(b)showArea(b.dataset.k)};
+showArea("retina");
 </script>
 </body>
 </html>

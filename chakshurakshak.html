@@ -20,29 +20,54 @@
       <div class="logo"><img src="images/products/cr-logo.svg" alt="ChakshuRakshak AI logo"><span>ChakshuRakshak AI</span></div>
       <div class="eyebrow">AI-powered retinal screening</div>
       <h1>Detect diabetic retinopathy before it's too late</h1>
-      <p class="lead">Upload a colour fundus photograph and get a 5-stage diabetic retinopathy grade, a retinal vessel map and an explainable confidence score in seconds. Built on the lab's fractional enhancement and vascular-geometry research.</p>
+      <p class="lead">Upload a colour fundus photograph and get an ICDR diabetic retinopathy grade, vessel and lesion maps, and an explainable confidence score in about three seconds. Built on the lab's fractional enhancement and vascular-geometry research.</p>
       <div class="ctas">
         <a class="btn" href="https://www.chakshurakshakai.com" target="_blank" rel="noopener">Try ChakshuRakshak AI ↗</a>
-        <a class="btn ghost" href="#validation">Clinical validation</a>
+        <a class="btn ghost" href="#how">How it works</a>
       </div>
       <div class="facts">
-        <div><b>5</b><span>DR stages graded</span></div>
+        <div><b>ICDR 0–4</b><span>DR grading scale</span></div>
         <div><b>SMS Hospital</b><span>Live clinical pilot</span></div>
         <div><b>1</b><span>Patent published</span></div>
       </div>
     </div>
-    <div class="shot"><img src="images/products/cr-app.jpg" alt="ChakshuRakshak AI analysis screen: original fundus, vessel overlay, binary vessel map and a Grade 3 result with confidence and referral advice" width="921" height="739"></div>
+    <div class="pipe" aria-label="How ChakshuRakshak AI processes a fundus image">
+      <div class="row"><span>1 · Enhance</span><b>FADHE</b></div>
+      <div class="row"><span>2 · Vessels</span><b>FHAU-Net</b></div>
+      <div class="row"><span>3 · Lesions</span><b>FLA-Net · MA, HE, EX, SE</b></div>
+      <div class="row"><span>4 · Grade</span><b>F2D-RetinaNet · ICDR 0–4</b></div>
+      <div class="row"><span>Time</span><span class="ok">≈ 3 seconds per image</span></div>
+    </div>
   </div>
 </section>
+<nav class="subnav" aria-label="On this page"><div class="wrap">
+  <a href="#how">How it works</a><a href="#validation">Clinical validation</a><a href="#events">Presentations</a><a href="#research">Research behind it</a><a href="https://www.chakshurakshakai.com" target="_blank" rel="noopener" class="try">Try it ↗</a>
+</div></nav>
 
-<section>
+<section id="how">
   <div class="wrap">
-    <h2>What it does</h2>
-    <p class="sub">ChakshuRakshakAI-DR: an AI-driven vision protection framework leveraging fractional enhancement and vascular geometry for accurate diabetic retinopathy grading.</p>
-    <div class="feat">
-      <div><span class="n">1</span><h3>Fractional enhancement</h3><p>Fractional-order filters sharpen vessels and small lesions such as microaneurysms before the network sees the image.</p></div>
-      <div><span class="n">2</span><h3>Vessel geometry</h3><p>A segmented vessel map measures tortuosity and other vascular changes that accompany retinopathy.</p></div>
-      <div><span class="n">3</span><h3>Graded, explainable result</h3><p>A 5-stage grade (No DR to Proliferative DR) with confidence, clinical indicators and a referral recommendation.</p></div>
+    <h2>How it works</h2>
+    <p class="sub" style="max-width:78ch">Given a retinal fundus image, ChakshuRakshak AI returns a severity grade aligned with the International Clinical Diabetic Retinopathy (ICDR) standard, together with a segmented vessel map, lesion-wise segmentation masks and a quantified lesion burden. What sets it apart is its mathematical core: instead of relying on a general-purpose convolutional backbone alone, it applies fractional-order operators at the enhancement and vessel-extraction stages, so that low-contrast early lesions and fine capillary geometry are preserved and carried forward into the grading decision.</p>
+    <div class="howgrid">
+      <div>
+        <h3 class="h3">What the system reports</h3>
+        <ul class="reports">
+          <li><b>DR grade</b> on the ICDR 0–4 scale with model confidence and an explicit referral recommendation.</li>
+          <li><b>Stage-wise breakdown</b> of the decision: detection → severity → fine grade.</li>
+          <li><b>Original fundus image</b> alongside the extracted vessel map and binary vasculature.</li>
+          <li><b>Lesion-wise segmentation masks</b> for MA, HE, EX and SE, with pixel counts and lesion burden as a percentage of image area.</li>
+          <li><b>About three seconds</b> per image end to end, with a printable clinician-facing report.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3">Components of the pipeline</h3>
+        <div class="comps">
+          <div class="comp"><span class="tag2">Enhancement</span><b>FADHE</b><p>Fractional Anisotropic Diffusion–based Hybrid Enhancement: the pre-processing operator that suppresses noise while enhancing low-contrast lesion boundaries.</p></div>
+          <div class="comp"><span class="tag2">Vessels</span><b>FHAU-Net</b><p>Fractional Hessian–based Attention U-Net for accurate retinal vessel extraction, producing the vessel map and binary vasculature used for geometric features.</p></div>
+          <div class="comp"><span class="tag2">Lesions</span><b>FLA-Net</b><p>Lesion segmentation network that localises and quantifies microaneurysms (MA), haemorrhages (HE), hard exudates (EX) and soft exudates (SE).</p></div>
+          <div class="comp"><span class="tag2">Grading</span><b>F2D-RetinaNet</b><p>Features-to-decisions dual-path framework forming the grading backbone, mapping enhanced image features and vascular-geometry descriptors to a robust retinal disease grade.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -68,7 +93,7 @@
   </div>
 </section>
 
-<section>
+<section id="events">
   <div class="wrap">
     <h2>Where we have presented it</h2>
     <p class="sub">ChakshuRakshak AI was showcased at four state and national events in 2026 and recognised for its impact as a scalable AI healthcare solution.</p>
@@ -89,7 +114,7 @@
   </div>
 </section>
 
-<section style="background:var(--soft)">
+<section id="research" style="background:var(--soft)">
   <div class="wrap">
     <h2>Research behind it</h2>
     <p class="sub">Papers and the patent that ChakshuRakshak AI is built on.</p>

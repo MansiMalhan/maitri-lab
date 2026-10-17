@@ -11,10 +11,10 @@
 :root{--pc:#4f9cff;--pdark:#0f172a}
 .btn{color:#fff}
 .feat .n{background:#e6efff;color:#1d5fd6}
-.xr{background:linear-gradient(160deg,#1e293b,#312e81);border-radius:18px;padding:30px;display:grid;gap:14px;border:1px solid rgba(255,255,255,.1)}
-.xr .row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;color:#dbe4f5;font-size:.92rem}
-.xr .row b{color:#fff}
-.xr .ok{color:#86efac;font-weight:600}
+.xr,.pipe{background:linear-gradient(160deg,#1e293b,#312e81);border-radius:18px;padding:30px;display:grid;gap:14px;border:1px solid rgba(255,255,255,.1)}
+.xr .row,.pipe .row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;color:#dbe4f5;font-size:.92rem}
+.xr .row b,.pipe .row b{color:#fff}
+.xr .ok,.pipe .ok{color:#86efac;font-weight:600}
 </style>
 </head>
 <body>
@@ -48,8 +48,11 @@
     </div>
   </div>
 </section>
+<nav class="subnav" aria-label="On this page"><div class="wrap">
+  <a href="#how">What it does</a><a href="#projects">Funded projects</a><a href="#research">Research behind it</a><a href="https://silicoshield-frontend.vercel.app" target="_blank" rel="noopener" class="try">Try it ↗</a>
+</div></nav>
 
-<section>
+<section id="how">
   <div class="wrap">
     <h2>What it does</h2>
     <p class="sub">A screening aid for radiologists and occupational health camps. Results are always reviewed by a qualified radiologist or physician.</p>
@@ -61,7 +64,7 @@
   </div>
 </section>
 
-<section class="val">
+<section class="val" id="projects">
   <div class="wrap">
     <h2>Funded projects</h2>
     <p class="sub">SilicoShield AI grew out of government-funded projects led by Dr. Priyanka Harjule as Principal Investigator.</p>

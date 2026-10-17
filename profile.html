@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Priyanka Harjule · Arogya AI Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14213d;--muted:#5b6475;--accent:#0b6e99;--accent2:#e8f3f8;--soft:#f6f8fb;--line:#e3e8ef}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav a{color:var(--ink);font-weight:600}
+.hero{background:linear-gradient(135deg,#0b2545,#0b6e99);color:#fff;padding:60px 0}
+.hero .wrap{display:flex;gap:36px;align-items:center;flex-wrap:wrap}
+.photo{width:170px;height:170px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.35);background:#cfd8e3}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(2rem,5vw,2.8rem)}
+.hero p{opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips a{background:rgba(255,255,255,.15);color:#fff;padding:5px 14px;border-radius:20px;font-size:.85rem}
+.chips a:hover{background:rgba(255,255,255,.3)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:-34px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.stat b{display:block;font-size:2rem;color:var(--accent)}
+.stat span{font-size:.85rem;color:var(--muted)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:40px 0 10px;border-bottom:1px solid var(--line)}
+.tabs a{padding:10px 14px;color:var(--muted);font-weight:500;font-size:.93rem}
+.tabs a:hover{color:var(--accent)}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+h2{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:16px}
+ul{padding-left:20px}
+li{margin-bottom:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.pub{padding:14px 0;border-bottom:1px dashed var(--line)}
+.pub:last-child{border:0}
+.pub h4{font-size:1rem}
+.pub p{color:var(--muted);font-size:.88rem}
+.yr{font-weight:700;color:var(--accent);margin:18px 0 4px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft)}
+.tbl{overflow-x:auto}
+.badge{display:inline-block;background:var(--accent2);color:var(--accent);font-size:.75rem;padding:2px 10px;border-radius:20px}
+footer{background:#0b2545;color:#c9d4e3;padding:30px 0;font-size:.9rem;margin-top:40px}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a href="index.html">← Arogya AI Lab</a><a href="index.html#team">Team</a></div></header>
+
+<div class="hero">
+  <div class="wrap">
+    <img class="photo" src="images/people/mnitjas345.png" alt="Dr. Priyanka Harjule">
+    <div>
+      <h1>Dr. Priyanka Harjule</h1>
+      <p>Assistant Professor, Department of Mathematics, MNIT Jaipur · Lead, Arogya AI Lab</p>
+      <p style="font-size:.9rem;margin-top:6px">R004, VLTC, MNIT, JLN Marg, Jaipur-302017<br>
+      ✉ <a style="color:#fff" href="mailto:priyanka.maths@mnit.ac.in">priyanka.maths@mnit.ac.in</a> · ☎ 0141-2715035</p>
+      <div class="chips">
+        <a href="https://scholar.google.co.in/citations?user=wnLRP6sAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Priyanka-Harjule-2" target="_blank">ResearchGate</a>
+        <a href="http://priyankaharjule.com/index.html" target="_blank">Personal Website</a>
+        <a href="https://www.mnit.ac.in/dept_math/profile?fid=RqqN" target="_blank">MNIT Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="stats">
+    <div class="stat"><b>25</b><span>Journal Publications</span></div>
+    <div class="stat"><b>17</b><span>Conference Publications</span></div>
+    <div class="stat"><b>6</b><span>Research Projects</span></div>
+    <div class="stat"><b>4</b><span>PhD Supervised</span></div>
+    <div class="stat"><b>3</b><span>Patents</span></div>
+  </div>
+
+  <nav class="tabs">
+    <a href="#about">About</a><a href="#journals">Journals</a><a href="#conf">Conferences</a>
+    <a href="#projects">Projects</a><a href="#patents">Patents</a><a href="#awards">Awards</a><a href="#talks">Talks</a>
+  </nav>
+
+  <section id="about">
+    <h2>Brief Research Profile</h2>
+    <p>Dr. Priyanka Harjule is a faculty member in the Department of Mathematics at Malaviya National Institute of Technology (MNIT) Jaipur. Her research lies at the intersection of Applied Mathematics, Machine Learning, Optimization and Fractional Calculus. She has authored over 30 research publications in reputed journals and international conferences. Her recent work includes fractional optimizers for deep neural networks and fractional-derivative filters for texture enhancement in medical imaging. Before MNIT she was Assistant Professor at IIIT Kota, where she founded and coordinated the e-Learning and Data Analytics Lab (e-LDA). She has led several government-sponsored research projects with a strong emphasis on interdisciplinary applications in engineering and healthcare.</p>
+    <div class="two" style="margin-top:28px">
+      <div><h3>Qualifications</h3><ul>
+        <li>Ph.D. (Applied Mathematics), MNIT Jaipur (2017)</li>
+        <li>M.Sc. (Mathematics), Bangalore University (2012)</li>
+        <li>B.Sc. (PCM), Bangalore University (2010)</li></ul>
+        <h3 style="margin-top:18px">Research Interests</h3>
+        <p>Fractional Calculus · Machine Learning · Computational Statistics</p>
+      </div>
+      <div><h3>Professional Background</h3><ul>
+        <li>Assistant Professor, MNIT Jaipur (Jul 2021 – Present)</li>
+        <li>Assistant Professor, IIIT Kota (May 2019 – Jul 2021)</li></ul>
+        <h3 style="margin-top:18px">Teaching</h3>
+        <p>Advanced Engineering Mathematics, Computational Statistics for Data Science, Engineering Mathematics I &amp; II, Fractional Differential Equations, Multivariable Calculus, Operations Research</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="journals"><h2>Journal Publications</h2><div id="jList"></div>
+    <p style="margin-top:14px"><a href="https://www.mnit.ac.in/dept_math/profile?fid=RqqN" target="_blank">View all 25 on MNIT profile →</a></p></section>
+
+  <section id="conf"><h2>Conference Publications</h2><div id="cList"></div></section>
+
+  <section id="projects"><h2>Research Projects</h2>
+    <div class="tbl"><table><thead><tr><th>Title</th><th>Outlay (₹ Lakh)</th><th>Year</th><th>Funding Agency</th></tr></thead><tbody id="pList"></tbody></table></div>
+  </section>
+
+  <section id="patents"><h2>Patents</h2><div id="patList"></div></section>
+
+  <section id="awards"><h2>Awards &amp; Honours</h2><ul>
+    <li>Teaching Excellence Award — Central University of Rajasthan (2023)</li>
+    <li>Appreciation certificate, Women in Science — DST, Government of Rajasthan (2022)</li>
+    <li>Merit scholarship for B.Sc. Mathematics — Education Scholarship Scheme for Army Personnel (2010)</li></ul>
+    <h3 style="margin-top:20px">Administrative Responsibilities</h3><ul>
+    <li>Member, Continuing and Digital Education Centre (CDEC), MNIT (2022 – present)</li>
+    <li>Member, NIRF Core Committee, MNIT (2022 – present)</li>
+    <li>Faculty Placement Coordinator, MNIT (2022 – 2024)</li>
+    <li>Member, Institute Newsletter editorial team; Rajbhasha committee (till 2024)</li>
+    <li>Coordinator, Centre for e-Learning, MNIT (2021 – 2022)</li></ul>
+  </section>
+
+  <section id="talks" style="border:0"><h2>Selected Invited Talks</h2><ul id="tList"></ul></section>
+</main>
+
+<footer><div class="wrap">Arogya AI Lab · Department of Mathematics, MNIT Jaipur · Profile details sourced from the MNIT faculty page.</div></footer>
+
+<script>
+const J=[
+["2026","Assessing reliability of BERT-based models on question answering tasks","Pooja Yadav, P. Harjule, B. Agarwal, M. Robnik-Šikonja — J. Experimental & Theoretical AI","https://doi.org/10.1080/0952813X.2026.2716084"],
+["2026","A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","P. Harjule, Mukesh Delu, R. Kumar, P. Nkomozepi — Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract10040246"],
+["2026","A climate-informed dengue transmission model with Bayesian decision support","P. Harjule, Harshit, D. Ramola, R. Kumar, P. Nkomozepi — Acta Tropica (Elsevier)","https://doi.org/10.1016/j.actatropica.2026.108037"],
+["2026","A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","Mukesh Delu, P. Harjule, R. Kumar, K. Gajjar — IJMEMS","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
+["2025","A hybrid integer-Caputo fractional order dengue transmission model","P. Harjule, Harshit, R. Kumar — Mathematics and Computers in Simulation (Elsevier)","https://doi.org/10.1016/j.matcom.2025.11.040"],
+["2025","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","P. Harjule, Rinki Sharma, R. Kumar — Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
+["2024","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","F. Mushtaq et al., P. Harjule — Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
+["2024","A Class of Fractional Integral Operators Involving a Certain General Multiindex Mittag-Leffler Function","H.M. Srivastava, M.K. Bansal, P. Harjule — Ukrainian Mathematical Journal","https://doi.org/10.1007/s11253-023-02259-7"],
+["2024","Mathematical Modelling and Analysis of Dengue Transmission Dynamics","Harshit, P. Harjule — Procedia Computer Science","https://doi.org/10.1016/j.procs.2024.04.053"],
+["2022","Texture Enhancement of Medical Images for Efficient Disease Diagnosis with Optimized Fractional Derivative Masks","P. Harjule et al. — Journal of Computational Biology","https://doi.org/10.1089/cmb.2021.0267"],
+["2018","A study of fractional integral operators involving a certain generalized multi-index Mittag-Leffler function","H.M. Srivastava, M. Bansal, P. Harjule — Math. Methods in the Applied Sciences","https://doi.org/10.1002/mma.5122"],
+["2015","A General Fractional Differential Equation Associated with an Integral Operator with the H-Function in the Kernel","H.M. Srivastava, P. Harjule, R. Jain — Russian Journal of Mathematical Physics","https://doi.org/10.1134/S1061920815010124"],
+];
+const C=[
+["2026","A Fractional Physics-Informed Neural Network With Ensemble Learning for Dengue Forecasting","Harshit, P. Harjule — ICCS, Hamburg (Springer)"],
+["2026","An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional Order Optimisation","Mukesh Delu, Rinki Sharma, P. Harjule, R. Kumar — PReMI, IIT Delhi (Springer)"],
+["2025","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, P. Harjule — ICCS, NTU Singapore (Springer)"],
+["2024","Extraction of Retinal Vasculature With Fractional Fuzzy Logic","Mukesh Delu, P. Harjule, S. Barman — MIND 2024, Goa (Springer)"],
+["2024","Fractional Derivative Approach for Training of Neural Networks","Rinki Sharma, P. Harjule — SoCTA, MNIT Jaipur (Springer)"],
+["2024","Fractional Frangi: Retinal Vessel Enhancement Filtering","Mukesh Delu, P. Harjule — SoCTA, MNIT Jaipur (Springer)"],
+];
+const P=[
+["An AI-Driven Framework for Automated Detection and Grading of Diabetic Retinopathy Using Fractional Calculus and Annotated Fundus Imaging","5.00","2025–2028","Faculty Seed Grant, MNIT Jaipur"],
+["Mathematical modelling for optimal control strategies against mosquito-borne infection based on fractional calculus","6.60","2024–2027","DST-SERB (MATRICS)"],
+["Mathematical modelling to examine the effect of various verticals on the operations of Self Help Groups in Rajasthan","31.34","2024–2026","Ministry of Rural Development, NRLM"],
+["ICESat-2 based ground photons retrieval in urban areas using deep learning","14.90","2023–2025","ISRO-RACS"],
+["AI-based model to assist radiologists in silicosis screening using chest X-rays","9.40","2022–2024","Dir. of Specially Abled Persons, Govt. of Rajasthan"],
+["AI model for screening and staging pneumoconiosis using chest X-rays","1.50","2022","SERB VRITIKA"],
+];
+const PT=[
+["AI-Driven Framework for Diabetic Retinopathy Grading and Related Methods","P. Harjule, Mukesh Delu, R. Kumar","Reg. No. 202611024093","Published 28-02-2026"],
+["Automated Classification System for Silicosis Using Deep Learning and Related Methods","P. Harjule, Rinki Sharma, R. Kumar","Reg. No. 202611024092","Published 28-02-2026"],
+["SILICO-AI: An AI-Based Portable Computer-Aided Diagnostic System for Silicosis Disease","K. Singh, F. Mushtaq, S.S. Chouhan, S. Mandia, R. Kumar, P. Harjule","Reg. No. 202311063986","Granted 02-09-2025"],
+];
+const T=[
+"Detecting Silicosis on X-rays Using a Deep Learning Model Based on a Fractional Optimizer — 6th Symposium on Pattern Recognition and Application, Osaka, Japan (Mar 2026)",
+"Emerging technologies shaping the future — Induction training for Junior Statistical Officers, NSO, GoI (Aug 2026)",
+"Keynote: Applications of Intelligent optimization techniques in sustainability — 18th Intl. Symposium, Belgrade, Serbia (Jun 2022)",
+"Mathematical Formulations of Recurrent Neural Networks — SERB Karyashala, CUSAT Kochi (Jan 2023)",
+"Applications of Fractional Calculus in Image Processing — Govt. Lohia College, Churu (Dec 2019)",
+];
+let last="";
+jList.innerHTML=J.map(([y,t,a,d])=>{const h=y!==last?`<div class="yr">${y}</div>`:"";last=y;return h+`<div class="pub"><h4><a href="${d}" target="_blank">${t}</a></h4><p>${a}</p></div>`}).join("");
+last="";
+cList.innerHTML=C.map(([y,t,a])=>{const h=y!==last?`<div class="yr">${y}</div>`:"";last=y;return h+`<div class="pub"><h4>${t}</h4><p>${a}</p></div>`}).join("");
+pList.innerHTML=P.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("");
+patList.innerHTML=PT.map(([t,a,n,s])=>`<div class="pub"><h4>${t}</h4><p>${a} · ${n} · <span class="badge">${s}</span></p></div>`).join("");
+tList.innerHTML=T.map(x=>`<li>${x}</li>`).join("");
+</script>
+</body>
+</html>

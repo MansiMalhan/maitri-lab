@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arogya AI Lab · MNIT Jaipur</title><link rel="icon" href="images/arogya_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14213d;--muted:#5b6475;--accent:#0b6e99;--accent2:#e8f3f8;--bg:#fff;--soft:#f6f8fb;--line:#e3e8ef}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1150px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+h2{font-family:"Playfair Display",serif;font-size:2.2rem;margin-bottom:10px}
+.sub{color:var(--muted);margin-bottom:40px;max-width:700px}
+
+/* Header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:.65rem;font-weight:700;text-align:center;border:2px solid var(--accent);color:var(--accent);flex-shrink:0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.links{display:flex;gap:26px;font-size:.95rem;font-weight:500}
+.links a:hover{color:var(--accent)}
+@media(max-width:800px){.links{display:none}}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#0b2545 0%,#0b6e99 100%);color:#fff;padding:110px 0 100px;text-align:center}
+.hero small{letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,6vw,4.2rem);margin:12px 0}
+.hero p{max-width:720px;margin:0 auto 30px;opacity:.9;font-size:1.1rem}
+.btn{display:inline-block;padding:12px 26px;border-radius:30px;background:#fff;color:var(--ink);font-weight:600;margin:4px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #fff}
+
+/* Mission */
+.mission{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:32px}
+.card h3{color:var(--accent);margin-bottom:10px}
+@media(max-width:800px){.mission{grid-template-columns:1fr}}
+
+/* Papers */
+#papers{background:var(--soft)}
+.pc{overflow:hidden}
+.ptrack{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;min-height:290px}
+@media(max-width:900px){.ptrack{grid-template-columns:1fr}}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;animation:pop .6s cubic-bezier(.2,.8,.2,1) both;transition:.2s}
+.pcard:hover{box-shadow:0 12px 30px rgba(11,110,153,.14);border-color:var(--accent)}
+.pcard:nth-child(2){animation-delay:.12s}.pcard:nth-child(3){animation-delay:.24s}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.pcard .meta{display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.pcard .meta b{color:var(--accent)}
+.pcard h4{font-size:1.02rem;line-height:1.4}
+.pcard p{color:var(--muted);font-size:.86rem}
+.pcard .venue{font-style:italic;color:var(--ink)}
+.pcard a.read{margin-top:auto;color:var(--accent);font-weight:600;font-size:.88rem}
+.pctl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:26px}
+.pctl button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.pctl button:hover{border-color:var(--accent);color:var(--accent)}
+.dots{display:flex;gap:7px}
+.dots span{width:8px;height:8px;border-radius:50%;background:#c9d4e3;cursor:pointer;transition:.3s}
+.dots span.on{background:var(--accent);width:22px;border-radius:5px}
+.paper{display:flex;gap:20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:16px;transition:.2s}
+.paper:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.year{font-weight:700;color:var(--accent);min-width:56px}
+.paper h4{font-size:1.05rem;margin-bottom:4px}
+.paper p{color:var(--muted);font-size:.9rem}
+.tag{display:inline-block;background:var(--accent2);color:var(--accent);font-size:.75rem;padding:2px 10px;border-radius:20px;margin-top:6px}
+
+/* Work grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.work{border:1px solid var(--line);border-radius:16px;padding:28px;transition:.2s}
+.work:hover{border-color:var(--accent);box-shadow:0 8px 24px rgba(11,110,153,.1)}
+.icon{width:46px;height:46px;border-radius:12px;background:var(--accent2);display:grid;place-items:center;font-size:1.4rem;margin-bottom:14px}
+.work p{color:var(--muted);font-size:.92rem}
+
+/* Patents */
+#patents{background:var(--soft)}
+.patent{background:#fff;border-left:4px solid var(--accent);border-radius:10px;padding:24px}
+.patent .no{font-size:.8rem;color:var(--muted)}
+
+/* Team */
+.lead{display:flex;align-items:center;gap:30px;background:linear-gradient(135deg,#0b2545,#0b6e99);color:#fff;border-radius:20px;padding:36px;margin-bottom:40px;flex-wrap:wrap}
+.avatar{width:110px;height:110px;border-radius:50%;background:#cfd8e3;display:grid;place-items:center;font-size:2rem;font-weight:700;color:var(--ink);flex-shrink:0}
+.lead .avatar{border:4px solid rgba(255,255,255,.4)}
+.member{text-align:center;padding:24px;border:1px solid var(--line);border-radius:16px}
+.member .avatar{width:90px;height:90px;margin:0 auto 12px;font-size:1.5rem}
+.member span{color:var(--muted);font-size:.88rem}
+
+footer{background:#0b2545;color:#c9d4e3;padding:40px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://www.mnit.ac.in" target="_blank"><img src="images/mnit_logo.png" alt="MNIT Jaipur" style="width:56px;height:56px"></a>
+    <nav class="links">
+      <a href="#about">About</a><a href="#papers">Papers</a><a href="#work">Our Work</a>
+      <a href="#patents">Patents</a><a href="#team">Team</a>
+    </nav>
+    <a class="brand" href="#"><span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.1"><span style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.25rem">आरोग्य AI</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted);margin-right:-.35em">LAB</span></span><img src="images/arogya_logo.png" alt="Arogya AI Lab logo" style="width:58px;height:58px"></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <small>MNIT Jaipur</small>
+    <h1>Welcome to आरोग्य AI Lab</h1>
+    <p>Building trustworthy machine learning for healthcare — from medical imaging to clinical decision support.</p>
+    <a class="btn" href="#papers">Recent Papers</a>
+    <a class="btn ghost" href="#team">Meet the Team</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap mission">
+    <div class="card"><h3>Our Mission</h3><p>To develop reliable, interpretable AI methods that translate into real clinical impact, with a focus on accessible screening for under-served populations.</p></div>
+    <div class="card"><h3>Introduction</h3><p>आरोग्य AI Lab (Arogya — "good health") is a research group at MNIT Jaipur working at the intersection of deep learning, applied mathematics and medicine. We collaborate with hospitals and clinicians to turn research into deployable tools.</p></div>
+  </div>
+</section>
+
+<section id="papers">
+  <div class="wrap">
+    <h2>Recent Papers</h2>
+    <p class="sub">Selected recent publications from the lab.</p>
+    <div class="pc" id="pc">
+      <div class="ptrack" id="paperList"></div>
+    </div>
+    <div class="pctl">
+      <button id="pPrev" aria-label="Previous">‹</button>
+      <div class="dots" id="pDots"></div>
+      <button id="pNext" aria-label="Next">›</button>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Our Work</h2>
+    <p class="sub">Research themes our members lead.</p>
+    <div class="grid" id="workList"></div>
+  </div>
+</section>
+
+<section id="patents">
+  <div class="wrap">
+    <h2>Our Patents</h2>
+    <p class="sub">Innovations protected and moving toward deployment.</p>
+    <div class="grid" id="patentList"></div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <h2>Our Team</h2>
+    <p class="sub">Led by our principal investigator, supported by a team of researchers.</p>
+    <div class="lead" style="cursor:pointer" onclick="if(event.target.tagName!=='A')location.href='profile.html'">
+      <img class="avatar" style="object-fit:cover" src="images/people/mnitjas345.png" alt="Dr. Priyanka Harjule">
+      <div><small style="opacity:.8;letter-spacing:.15em">LED BY</small><h3 style="font-size:1.6rem">Dr. Priyanka Harjule</h3><p style="opacity:.9">Assistant Professor, Department of Mathematics, MNIT Jaipur<br>Fractional Calculus · Machine Learning · Computational Statistics</p>
+      <a class="btn" style="margin-top:14px" href="profile.html">View Full Profile →</a></div>
+    </div>
+    <div class="grid" id="teamList"></div>
+    <h3 style="margin:44px 0 18px;font-size:1.4rem">PhD Graduates</h3>
+    <div class="grid" id="alumniList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff">Arogya AI Lab</strong><br>Malaviya National Institute of Technology, Jaipur</div>
+    <div>Contact: <a href="mailto:priyanka.maths@mnit.ac.in" style="color:#fff">priyanka.maths@mnit.ac.in</a> · © 2026 Arogya AI Lab</div>
+  </div>
+</footer>
+
+<script>
+// Edit these arrays to update content
+const papers=[
+  ["2026","Journal","A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","P. Harjule, Mukesh Delu, R. Kumar, P. Nkomozepi","Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract10040246"],
+  ["2026","Journal","A climate-informed dengue transmission model with Bayesian decision support","P. Harjule, Harshit, D. Ramola, R. Kumar, P. Nkomozepi","Acta Tropica (Elsevier)","https://doi.org/10.1016/j.actatropica.2026.108037"],
+  ["2026","Journal","Assessing reliability of BERT-based models on question answering tasks","Pooja Yadav, P. Harjule, B. Agarwal, M. Robnik-Šikonja","J. Experimental & Theoretical AI (Taylor & Francis)","https://doi.org/10.1080/0952813X.2026.2716084"],
+  ["2026","Journal","A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","Mukesh Delu, P. Harjule, R. Kumar, K. Gajjar","IJMEMS (Ram Arti Publisher)","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
+  ["2026","Conference","A Fractional Physics-Informed Neural Network With Ensemble Learning for Dengue Forecasting","Harshit, P. Harjule","ICCS 2026, Hamburg (Springer)",""],
+  ["2026","Conference","An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional Order Optimisation","Mukesh Delu, Rinki Sharma, P. Harjule, R. Kumar","PReMI 2026, IIT Delhi (Springer)",""],
+  ["2025","Journal","A hybrid integer-Caputo fractional order dengue transmission model","P. Harjule, Harshit, R. Kumar","Mathematics and Computers in Simulation (Elsevier)","https://doi.org/10.1016/j.matcom.2025.11.040"],
+  ["2025","Journal","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","P. Harjule, Rinki Sharma, R. Kumar","Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
+  ["2025","Conference","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, P. Harjule","ICCS 2025, NTU Singapore (Springer)",""],
+  ["2024","Journal","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","F. Mushtaq et al., P. Harjule","Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
+  ["2024","Conference","Fractional Frangi: Retinal Vessel Enhancement Filtering","Mukesh Delu, P. Harjule","SoCTA 2024, MNIT Jaipur (Springer)",""],
+  ["2024","Conference","Extraction of Retinal Vasculature With Fractional Fuzzy Logic","Mukesh Delu, P. Harjule, S. Barman","MIND 2024, Goa (Springer)",""],
+];
+const work=[
+  ["👁️","ChakshuRakshak AI","AI-based diabetic retinopathy screening from retinal fundus images.","https://www.chakshurakshakai.com"],
+  ["🫁","SilicoShield","AI-assisted silicosis detection from chest X-rays.","https://silicoshield-frontend.vercel.app"],
+];
+const patents=[
+  ["AI-Driven Framework for Diabetic Retinopathy Grading and Related Methods","Priyanka Harjule, Mukesh Delu, Rajesh Kumar","Reg. No. 202611024093","Published 28-02-2026"],
+  ["Automated Classification System for Silicosis Using Deep Learning and Related Methods","Priyanka Harjule, Rinki Sharma, Rajesh Kumar","Reg. No. 202611024092","Published 28-02-2026"],
+  ["SILICO-AI: An AI-Based Portable Computer-Aided Diagnostic System for Silicosis Disease","Kuldeep Singh, Faisel Mushtaq, Satyendra S Chouhan, Sandeep Mandia, Rajesh Kumar, Priyanka Harjule","Reg. No. 202311063986","Granted 02-09-2025"],
+];
+const team=[
+  ["Ms. Parul Narera","PhD Scholar · 2026RMA9071","Application of mathematics, computer vision and machine learning","2026rma9071@mnit.ac.in","images/people/2026RMA9071_20260817_171921.jpg"],
+  ["Ms. Aishwarya Bhakar","PhD Scholar · 2026RMA9003","Statistical inference, deep learning, computer vision, medical image analysis","2026rma9003@mnit.ac.in","images/people/2026rma9003_20260818_125341.jpg"],
+  ["Ms. Mansi Malhan","PhD Scholar · 2025RMA9534","Applied mathematics in deep learning and medical imaging","2025rma9534@mnit.ac.in","images/people/2025RMA9534_20260821_161125.jpg"],
+  ["Ms. Pooja","PhD Scholar · 2023RMA9040","Computational statistics","2023RMA9040@mnit.ac.in","images/people/2023RMA9040_20230808_130142.jpg"],
+  ["Mr. Harshit","PhD Scholar · 2022RMA9061","Computational statistics","2022rma9061@mnit.ac.in","images/people/2022rma9061_20220823_163530.jpg"],
+];
+const alumni=[
+  ["Dr. Rinki Sharma","PhD Awarded 2026","Thesis: Optimization of Neural Networks based on Fractional Derivatives","2021RMA9567@mnit.ac.in","images/people/2021RMA9567_20220521_114006.jpg"],
+  ["Dr. Mukesh Delu","PhD Awarded 2026","Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications","2022rma9055@mnit.ac.in","images/people/2022RMA9055_20220823_163407.jpg"],
+];
+const ini=n=>n.split(" ").map(w=>w[0]).join("").slice(0,2);
+// Recent papers carousel: shows 3 at a time (1 on mobile), auto-advances, pauses on hover
+(()=>{let per=()=>innerWidth<900?1:3,i=0,timer;
+const pages=()=>Math.ceil(papers.length/per());
+const render=()=>{const n=per(),st=i*n;
+  paperList.innerHTML=papers.slice(st,st+n).map(([y,k,t,a,v,d])=>`<div class="pcard"><div class="meta"><span class="tag" style="margin:0">${k}</span><b>${y}</b></div><h4>${t}</h4><p>${a}</p><p class="venue">${v}</p>${d?`<a class="read" href="${d}" target="_blank">Read paper →</a>`:""}</div>`).join("");
+  pDots.innerHTML=Array.from({length:pages()},(_,j)=>`<span class="${j===i?"on":""}" data-j="${j}"></span>`).join("");};
+const go=j=>{i=(j+pages())%pages();render();};
+const start=()=>{clearInterval(timer);timer=setInterval(()=>go(i+1),4500);};
+pNext.onclick=()=>{go(i+1);start()};pPrev.onclick=()=>{go(i-1);start()};
+pDots.onclick=e=>{if(e.target.dataset.j){go(+e.target.dataset.j);start()}};
+pc.onmouseenter=()=>clearInterval(timer);pc.onmouseleave=start;
+addEventListener("resize",()=>{i=0;render()});
+render();start();})();
+workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}" target="_blank" rel="noopener"><div class="icon">${i}</div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Visit website →</span></a>`).join("");
+patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
+const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;
+teamList.innerHTML=team.map(card).join("");
+alumniList.innerHTML=alumni.map(card).join("");
+</script>
+</body>
+</html>

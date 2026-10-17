@@ -39,32 +39,31 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 .card h3{color:var(--accent);margin-bottom:10px}
 @media(max-width:800px){.mission{grid-template-columns:1fr}}
 
-/* Papers */
-#papers{background:var(--soft)}
-.pc{overflow:hidden}
-.ptrack{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;min-height:290px}
-@media(max-width:900px){.ptrack{grid-template-columns:1fr}}
-.pcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;animation:pop .6s cubic-bezier(.2,.8,.2,1) both;transition:.2s}
-.pcard:hover{box-shadow:0 12px 30px rgba(11,110,153,.14);border-color:var(--accent)}
-.pcard:nth-child(2){animation-delay:.12s}.pcard:nth-child(3){animation-delay:.24s}
-@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
-.pcard .meta{display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
-.pcard .meta b{color:var(--accent)}
-.pcard h4{font-size:1.02rem;line-height:1.4}
-.pcard p{color:var(--muted);font-size:.86rem}
-.pcard .venue{font-style:italic;color:var(--ink)}
-.pcard a.read{margin-top:auto;color:var(--accent);font-weight:600;font-size:.88rem}
-.pctl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:26px}
-.pctl button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.3rem;cursor:pointer;color:var(--ink)}
-.pctl button:hover{border-color:var(--accent);color:var(--accent)}
-.dots{display:flex;gap:7px}
-.dots span{width:8px;height:8px;border-radius:50%;background:#c9d4e3;cursor:pointer;transition:.3s}
-.dots span.on{background:var(--accent);width:22px;border-radius:5px}
-.paper{display:flex;gap:20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:16px;transition:.2s}
-.paper:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
-.year{font-weight:700;color:var(--accent);min-width:56px}
-.paper h4{font-size:1.05rem;margin-bottom:4px}
-.paper p{color:var(--muted);font-size:.9rem}
+/* Publications */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr}}
+.pcard2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px;color:var(--ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+.pcard2:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(11,110,153,.14);border-color:var(--accent)}
+.pcard2 .meta2{display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.pcard2 .meta2 b{color:var(--accent)}
+.pcard2 h4{font-size:1rem;line-height:1.4}
+.pcard2 .au{font-size:.84rem;color:var(--ink)}
+.pcard2 .ve{font-size:.82rem;color:var(--muted);font-style:italic}
+.pcard2 .read{margin-top:auto;color:var(--accent);font-weight:600;font-size:.86rem;padding-top:6px}
+.ptype{display:inline-block;background:var(--accent2);color:var(--accent);font-size:.72rem;font-weight:600;padding:2px 10px;border-radius:12px;margin-bottom:4px}
+.pmore{display:flex;justify-content:center;margin-top:30px}
+.pmore button{font:600 .95rem Inter,sans-serif;background:var(--accent);color:#fff;border:0;border-radius:30px;padding:12px 28px;cursor:pointer}
+.pmore button:hover{background:#085a7d}
+.pmore button:focus-visible,.chip:focus-visible{outline:3px solid #3fc1e8;outline-offset:2px}
+.pall{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.chip{font:600 .85rem Inter,sans-serif;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 15px;border-radius:20px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pyear{font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--accent);margin:22px 0 10px}
+#pubList{display:grid;gap:10px}
+#pubList .pitem{grid-template-columns:1fr auto}
+#pubList .pitem .yr{display:none}
 .tag{display:inline-block;background:var(--accent2);color:var(--accent);font-size:.75rem;padding:2px 10px;border-radius:20px;margin-top:6px}
 
 /* Work grid */
@@ -124,7 +123,8 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 .dcard a{align-self:flex-start;font-size:.85rem;font-weight:600;color:#fff;background:var(--accent);padding:6px 14px;border-radius:18px}
 .dcard a:hover{background:#085a7d}
 .note{font-size:.85rem;color:var(--muted);margin-top:10px}
-#patents{background:#fff}
+#patents{background:var(--soft)}
+#team{background:var(--soft)}
 .patent{background:#fff;border-left:4px solid var(--accent);border-radius:10px;padding:24px}
 .patent .no{font-size:.8rem;color:var(--muted)}
 
@@ -146,8 +146,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   <div class="wrap nav">
     <a class="brand" href="https://www.mnit.ac.in" target="_blank"><img src="images/mnit_logo.png" alt="MNIT Jaipur" style="width:56px;height:56px"></a>
     <nav class="links">
-      <a href="#about">About</a><a href="#papers">Papers</a><a href="#work">Our Work</a><a href="#research">Research</a>
-      <a href="#patents">Patents</a><a href="#team">Team</a>
+      <a href="#about">About</a><a href="#team">Team</a><a href="#work">Products</a><a href="#research">Research</a><a href="#papers">Publications</a>
+      <a href="#patents">Patents</a>
     </nav>
     <a class="brand" href="#"><span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">M<span style="color:var(--accent)">AI</span>TRI</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted);margin-right:-.35em">LAB</span></span><img src="images/maitri_logo.png" alt="MAITRI Lab logo" style="width:58px;height:58px"></a>
   </div>
@@ -158,7 +158,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
     <small>MNIT Jaipur</small>
     <h1>Welcome to M<span style="color:#3fc1e8">AI</span>TRI Lab</h1>
     <p><b>M</b>athematics and <b>A</b>rtificial <b>I</b>ntelligence for <b>T</b>heoretical <b>R</b>easoning and <b>I</b>nnovation</p>
-    <a class="btn" href="#papers">Recent Papers</a>
+    <a class="btn" href="#research">Our Research</a>
     <a class="btn ghost" href="#team">Meet the Team</a>
   </div>
 </section>
@@ -167,46 +167,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   <div class="wrap mission">
     <div class="card"><h3>Our Mission</h3><p>To develop reliable, interpretable AI methods that translate into real clinical impact, with a focus on accessible screening for under-served populations.</p></div>
     <div class="card"><h3>Introduction</h3><p>MAITRI Lab is a research group in the Department of Mathematics, MNIT Jaipur, building the mathematics behind AI: fractional calculus, optimisation and statistics, applied to large language models, medical imaging, silicosis detection and epidemic modelling. We collaborate with hospitals and clinicians to turn research into deployable tools.</p></div>
-  </div>
-</section>
-
-<section id="papers">
-  <div class="wrap">
-    <h2>Recent Papers</h2>
-    <p class="sub">Selected recent publications from the lab.</p>
-    <div class="pc" id="pc">
-      <div class="ptrack" id="paperList"></div>
-    </div>
-    <div class="pctl">
-      <button id="pPrev" aria-label="Previous">‹</button>
-      <div class="dots" id="pDots"></div>
-      <button id="pNext" aria-label="Next">›</button>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="wrap">
-    <h2>Our Work</h2>
-    <p class="sub">Research themes our members lead.</p>
-    <div class="grid" id="workList"></div>
-  </div>
-</section>
-
-<section id="research">
-  <div class="wrap">
-    <h2>Research Areas</h2>
-    <p class="sub">Four application areas, one mathematical core: fractional calculus, optimisation and statistics for AI. Click an area to see our papers and the public datasets behind it.</p>
-    <div class="rcards" id="rcards"></div>
-    <div id="rdetail"></div>
-  </div>
-</section>
-
-<section id="patents">
-  <div class="wrap">
-    <h2>Our Patents</h2>
-    <p class="sub">Innovations protected and moving toward deployment.</p>
-    <div class="grid" id="patentList"></div>
   </div>
 </section>
 
@@ -225,6 +185,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   </div>
 </section>
 
+<section id="work">
+  <div class="wrap">
+    <h2>Impactful Products</h2>
+    <p class="sub">Tools built from our research and used in the real world.</p>
+    <div class="grid" id="workList"></div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research Areas</h2>
+    <p class="sub">Four application areas, one mathematical core: fractional calculus, optimisation and statistics for AI. Click an area to see our papers and the public datasets behind it.</p>
+    <div class="rcards" id="rcards"></div>
+    <div id="rdetail"></div>
+  </div>
+</section>
+
+<section id="papers">
+  <div class="wrap">
+    <h2>Publications</h2>
+    <p class="sub">Our most recent papers. Open the full list for every publication from Dr. Harjule's profile.</p>
+    <div class="pgrid" id="pubRecent"></div>
+    <div class="pmore"><button id="pubMore" aria-expanded="false" aria-controls="pubAll">Show all publications</button></div>
+    <div class="pall" id="pubAll" hidden>
+      <div class="chips" id="pubChips"></div>
+      <div id="pubList"></div>
+    </div>
+  </div>
+</section>
+
+<section id="patents">
+  <div class="wrap">
+    <h2>Our Patents</h2>
+    <p class="sub">Innovations protected and moving toward deployment.</p>
+    <div class="grid" id="patentList"></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div><strong style="color:#fff">MAITRI Lab</strong><br>Malaviya National Institute of Technology, Jaipur</div>
@@ -234,21 +232,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 
 <script>
 // Edit these arrays to update content
-const papers=[
-  ["2026","Journal","F2D-RetinaNet: a feature-to-decision dual-path network with fractional operators for retinal disease detection and grading","Mukesh Delu, P. Harjule, R. Kumar, K. Gajjar, P. Nkomozepi","Scientific Reports (Nature)","https://doi.org/10.1038/s41598-026-75441-z"],
-  ["2026","Journal","A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","P. Harjule, Mukesh Delu, R. Kumar, P. Nkomozepi","Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract10040246"],
-  ["2026","Journal","A climate-informed dengue transmission model with Bayesian decision support","P. Harjule, Harshit, D. Ramola, R. Kumar, P. Nkomozepi","Acta Tropica (Elsevier)","https://doi.org/10.1016/j.actatropica.2026.108037"],
-  ["2026","Journal","Assessing reliability of BERT-based models on question answering tasks","Pooja Yadav, P. Harjule, B. Agarwal, M. Robnik-Šikonja","J. Experimental & Theoretical AI (Taylor & Francis)","https://doi.org/10.1080/0952813X.2026.2716084"],
-  ["2026","Journal","A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","Mukesh Delu, P. Harjule, R. Kumar, K. Gajjar","IJMEMS (Ram Arti Publisher)","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
-  ["2026","Conference","A Fractional Physics-Informed Neural Network With Ensemble Learning for Dengue Forecasting","Harshit, P. Harjule","ICCS 2026, Hamburg (Springer)",""],
-  ["2026","Conference","An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional Order Optimisation","Mukesh Delu, Rinki Sharma, P. Harjule, R. Kumar","PReMI 2026, IIT Delhi (Springer)",""],
-  ["2025","Journal","A hybrid integer-Caputo fractional order dengue transmission model","P. Harjule, Harshit, R. Kumar","Mathematics and Computers in Simulation (Elsevier)","https://doi.org/10.1016/j.matcom.2025.11.040"],
-  ["2025","Journal","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","P. Harjule, Rinki Sharma, R. Kumar","Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
-  ["2025","Conference","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, P. Harjule","ICCS 2025, NTU Singapore (Springer)",""],
-  ["2024","Journal","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","F. Mushtaq et al., P. Harjule","Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
-  ["2024","Conference","Fractional Frangi: Retinal Vessel Enhancement Filtering","Mukesh Delu, P. Harjule","SoCTA 2024, MNIT Jaipur (Springer)",""],
-  ["2024","Conference","Extraction of Retinal Vasculature With Fractional Fuzzy Logic","Mukesh Delu, P. Harjule, S. Barman","MIND 2024, Goa (Springer)",""],
-];
 const work=[
   ["👁️","ChakshuRakshak AI","AI-based diabetic retinopathy screening from retinal fundus images.","https://www.chakshurakshakai.com"],
   ["🫁","SilicoShield","AI-assisted silicosis detection from chest X-rays.","https://silicoshield-frontend.vercel.app"],
@@ -270,19 +253,66 @@ const alumni=[
   ["Dr. Mukesh Delu","PhD Awarded 2026","Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications","2022rma9055@mnit.ac.in","images/people/2022RMA9055_20220823_163407.jpg"],
 ];
 const ini=n=>n.split(" ").map(w=>w[0]).join("").slice(0,2);
-// Recent papers carousel: shows 3 at a time (1 on mobile), auto-advances, pauses on hover
-(()=>{let per=()=>innerWidth<900?1:3,i=0,timer;
-const pages=()=>Math.ceil(papers.length/per());
-const render=()=>{const n=per(),st=i*n;
-  paperList.innerHTML=papers.slice(st,st+n).map(([y,k,t,a,v,d])=>`<div class="pcard"><div class="meta"><span class="tag" style="margin:0">${k}</span><b>${y}</b></div><h4>${t}</h4><p>${a}</p><p class="venue">${v}</p>${d?`<a class="read" href="${d}" target="_blank">Read paper →</a>`:""}</div>`).join("");
-  pDots.innerHTML=Array.from({length:pages()},(_,j)=>`<span class="${j===i?"on":""}" data-j="${j}"></span>`).join("");};
-const go=j=>{i=(j+pages())%pages();render();};
-const start=()=>{clearInterval(timer);timer=setInterval(()=>go(i+1),4500);};
-pNext.onclick=()=>{go(i+1);start()};pPrev.onclick=()=>{go(i-1);start()};
-pDots.onclick=e=>{if(e.target.dataset.j){go(+e.target.dataset.j);start()}};
-pc.onmouseenter=()=>clearInterval(timer);pc.onmouseleave=start;
-addEventListener("resize",()=>{i=0;render()});
-render();start();})();
+// Publications: full list from Dr. Harjule's MNIT profile (+ newer papers). [year, type, title, authors, venue, link]
+const pubs=[
+ ["2026","Journal","F2D-RetinaNet: a feature-to-decision dual-path network with fractional operators for retinal disease detection and grading","Mukesh Delu, Priyanka Harjule, Rajesh Kumar, Kushal Gajjar, Pilani Nkomozepi","Scientific Reports (Nature)","https://doi.org/10.1038/s41598-026-75441-z"],
+ ["2026","Journal","A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","Priyanka Harjule, Mukesh Delu, Rajesh Kumar, Pilani Nkomozepi","Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract10040246"],
+ ["2026","Journal","A climate-informed dengue transmission model with Bayesian decision support","Priyanka Harjule, Harshit, Divyansh Ramola, Rajesh Kumar, Pilani Nkomozepi","Acta Tropica (Elsevier)","https://doi.org/10.1016/j.actatropica.2026.108037"],
+ ["2026","Journal","Assessing reliability of BERT-based models on question answering tasks","Pooja Yadav, Priyanka Harjule, Basant Agarwal, Marko Robnik-Šikonja","J. of Experimental & Theoretical AI (Taylor & Francis)","https://doi.org/10.1080/0952813X.2026.2716084"],
+ ["2026","Journal","A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","Mukesh Delu, Priyanka Harjule, Rajesh Kumar, Kushal Gajjar","Int. J. of Mathematical, Engineering and Management Sciences","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
+ ["2026","Conference","A Fractional Physics-Informed Neural Network with Ensemble Learning for Dengue Forecasting","Harshit, Priyanka Harjule","ICCS 2026, Hamburg (Springer)","https://doi.org/10.1007/978-3-032-29912-3_30"],
+ ["2026","Conference","An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional-Order Optimisation","Mukesh Delu, Rinki Sharma, Priyanka Harjule, Rajesh Kumar","PReMI 2026, IIT Delhi (Springer)","https://doi.org/10.1007/978-3-032-18480-1_37"],
+ ["2025","Journal","A hybrid integer-Caputo fractional order dengue transmission model: Parameter optimization and empirical study with real-world data","Priyanka Harjule, Harshit, Rajesh Kumar","Mathematics and Computers in Simulation (Elsevier)","https://doi.org/10.1016/j.matcom.2025.11.040"],
+ ["2025","Journal","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","Priyanka Harjule, Rinki Sharma, Rajesh Kumar","Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
+ ["2025","Conference","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, Priyanka Harjule","ICCS 2025, NTU Singapore (Springer)","https://doi.org/10.1007/978-3-031-97557-8_4"],
+ ["2024","Journal","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","Faisel Mushtaq, Saunak Bhattacharjee, Sandeep Mandia, Kuldeep Singh, Satyendra Singh Chouhan, Rajesh Kumar, Priyanka Harjule","Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
+ ["2024","Journal","A Class of Fractional Integral Operators Involving a Certain General Multiindex Mittag-Leffler Function","H.M. Srivastava, M.K. Bansal, Priyanka Harjule","Ukrainian Mathematical Journal (Springer Nature)","https://doi.org/10.1007/s11253-023-02259-7"],
+ ["2024","Journal","Mathematical Modelling and Analysis of Dengue Transmission Dynamics","Harshit, Priyanka Harjule","Procedia Computer Science (Elsevier)","https://doi.org/10.1016/j.procs.2024.04.053"],
+ ["2024","Journal","Modified Gradient Descent Approach Involving Caputo Fractional Derivative with Metaheuristic Optimizer","Rinki Sharma, Priyanka Harjule","J. of Vibration Testing and System Dynamics (L&H Scientific)",""],
+ ["2024","Conference","Extraction of Retinal Vasculature with Fractional Fuzzy Logic","Mukesh Delu, Priyanka Harjule, Sudipta Barman","MIND 2024, Goa (Springer)","https://doi.org/10.1007/978-3-032-14534-5_12"],
+ ["2024","Conference","Fractional Derivative Approach for Training of Neural Networks","Rinki Sharma, Priyanka Harjule","SoCTA 2024, MNIT Jaipur (Springer)","https://doi.org/10.1007/978-981-96-5958-6_29"],
+ ["2024","Conference","Fractional Frangi: Retinal Vessel Enhancement Filtering","Mukesh Delu, Priyanka Harjule","SoCTA 2024, MNIT Jaipur (Springer)","https://doi.org/10.1007/978-981-96-5958-6_27"],
+ ["2023","Journal","Analysing Misinformation Sharing Amongst College Students in India During COVID-19","Priyanka Harjule, Mohd. Tokir Manva, Tanuj Mehta, Shivam Gurjar, Basant Agarwal","Procedia Computer Science (Elsevier)","https://doi.org/10.1016/j.procs.2023.01.048"],
+ ["2023","Journal","Fractional Differential Equations associated with M-S-M fractional integral operator in Fp,μ space","M.K. Bansal, Priyanka Harjule, Devendra Kumar","Thai Journal of Mathematics",""],
+ ["2023","Conference","Modified Fractional Edge Detection Masks Based on Compass Gradient for Retinopathy Screening","Mukesh Delu, Priyanka Harjule","ICEET 2023, Istanbul (IEEE)",""],
+ ["2023","Conference","Noise Filtering Algorithm Based on Machine Learning for Identification of Ground Hitting Photons in Jaipur City","Tushar Sadhwani, Himanshu Pareek, Priyanka Harjule, S.S. Rao, Basant Agarwal","ADCIS 2023, BITS Pilani (Springer)",""],
+ ["2023","Conference","Sequential Transfer Learning Models With Additional Layers for Pneumonia Diagnosis","G.K. Sharma, Priyanka Harjule, T. Sadhwani, B. Agarwal, R. Kumar","CEEEA 2023, Srinagar Garhwal (IEEE)",""],
+ ["2023","Conference","Impact of Issued Loans on the Income of Self-Help Group Women in Rajasthan","Pooja, Priyanka Harjule, Basant Agarwal, S. Nayak","ICT4SD 2023, Goa (Springer)",""],
+ ["2023","Conference","Silicosis Detection Using Extended Transfer Learning Model","G.K. Sharma, Priyanka Harjule, Basant Agarwal, Rajesh Kumar","RTIP2R 2023, University of Derby, UK (Springer)",""],
+ ["2023","Book","Computational Statistical Methodologies and Modeling for Artificial Intelligence","Priyanka Harjule, Azizur Rahman, Basant Agarwal, Vinita Tiwari","Reference book, Routledge (Taylor & Francis) · ISBN 9781032170800",""],
+ ["2022","Journal","An Effective Strategy and Mathematical Model to Predict the Sustainable Evolution of the Impact of the Pandemic Lockdown","Priyanka Harjule, Ramesh Chandra Poonia, Basant Agrawal, et al.","Healthcare (MDPI)","https://doi.org/10.3390/healthcare10050759"],
+ ["2022","Journal","An Investigation of Incomplete H-Functions Associated with Some Fractional Integral Operators","Priyanka Harjule, Manish Kumar Bansal, Serkan Araci","Filomat","https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/13514"],
+ ["2022","Journal","Texture Enhancement of Medical Images for Efficient Disease Diagnosis with Optimized Fractional Derivative Masks","Priyanka Harjule, Manva Mohd Tokir, Tanuj Mehta, Shivam Gurjar, Anupam Kumar, Basant Agarwal","Journal of Computational Biology","https://doi.org/10.1089/cmb.2021.0267"],
+ ["2022","Journal","Understanding the intent behind sharing misinformation on social media","Basant Agarwal, Ajay Agarwal, Priyanka Harjule, Azizur Rahman","J. of Experimental & Theoretical AI (Taylor & Francis)","https://doi.org/10.1080/0952813X.2021.1960637"],
+ ["2022","Conference","Understanding the Role of Feature Engineering in Fake News Detection","Ajay Agarwal, Basant Agarwal, Priyanka Harjule","SoCTA 2021, IIIT Kota (Springer)",""],
+ ["2021","Journal","A cross-sectional study of anxiety, stress, perception and mental health towards online learning of school children in India during COVID-19","Priyanka Harjule, Azizur Rahman, Basant Agarwal","Journal of Interdisciplinary Mathematics (Taylor & Francis)","https://doi.org/10.1080/09720502.2021.1889780"],
+ ["2021","Journal","Prediction of dogecoin price using deep learning and social media trends","Basant Agarwal, Priyanka Harjule, Lakshit Chauhan, Upkar Saraswat, Parth Agarwal","EAI Endorsed Trans. on Industrial Networks and Intelligent Systems","https://doi.org/10.4108/eai.29-9-2021.171188"],
+ ["2021","Journal","Mathematical models to predict COVID-19 outbreak: An Interim Review","Priyanka Harjule, Vinita Tiwari, Anupam Kumar","Journal of Interdisciplinary Mathematics (Taylor & Francis)","https://doi.org/10.1080/09720502.2020.1848316"],
+ ["2021","Conference","Forecasting and Seasonal Analysis of Air Quality Index Using Machine Learning Models During COVID-19 Pandemic","Priyanka Harjule, Basant Agarwal, Ashish Burdak, Satvik Gupta, Saurav Singh, Shivdeep Singh","ICCBI 2021, Tamil Nadu (Springer)",""],
+ ["2021","Book chapter","Mental health analysis of students in major cities of India during COVID-19","Ashi Agarwal, Basant Agarwal, Priyanka Harjule, Ajay Agarwal","Springer, Singapore · ISBN 978-981-334-236-1",""],
+ ["2021","Book chapter","Analysis of Land Use/Land Cover Built-Up and Non Built-Up Areas: Pixel-based Classification using Google Earth Engine in an Urban Region, Delhi, India","Apurv Jain, Meet Jain, Rahul Ashok Verma, Anupam Kumar, Basant Agarwal, Priyanka Harjule","Taylor & Francis · ISBN 9781032001128",""],
+ ["2020","Journal","Fractional order models for viscoelasticity in lung tissues with power, exponential and Mittag-Leffler memories","Priyanka Harjule, M.K. Bansal","Int. J. of Applied and Computational Mathematics (Springer)","https://doi.org/10.1007/s40819-020-00872-9"],
+ ["2020","Journal","Fractional Kinetic Equations involving the incomplete I-functions","M.K. Bansal, Devendra Kumar, Priyanka Harjule","Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract4020019"],
+ ["2020","Conference","Reliability of News","Priyanka Harjule, Akshat Sharma, Sachin Chauhan, Shashank Joshi","ICETCE 2020, Jaipur (IEEE)",""],
+ ["2020","Conference","Text Classification on Twitter Data","Priyanka Harjule, Astha Gurjar, Harshita Seth, Priya Thakur","ICETCE 2020, Jaipur (IEEE)",""],
+ ["2020","Book chapter","The COVID-19 outbreak: Social media sentiment analysis of public reactions with multi-dimensional perspective","Basant Agarwal, Vaishnavi Sharma, Priyanka Harjule, Vinita Tiwari, Ashish Sharma","Elsevier · ISBN 9780128245576",""],
+ ["2019","Journal","Certain formulas involving a multi-index Mittag-Leffler function","Manish Kumar Bansal, Priyanka Harjule, Junesang Choi, Shahid Mubeen, Devendra Kumar","East Asian Mathematical Journal","https://doi.org/10.7858/eamj.2019.004"],
+ ["2018","Journal","A study of fractional integral operators involving a certain generalized multi-index Mittag-Leffler function","H.M. Srivastava, Manish Bansal, Priyanka Harjule","Mathematical Methods in the Applied Sciences (Wiley)","https://doi.org/10.1002/mma.5122"],
+ ["2017","Journal","A general Volterra-type integral equation associated with an integral operator involving the product of general class of polynomials and multivariable H-function in the kernel","Priyanka Harjule, Rashmi Jain","Proceedings of the Jangjeon Mathematical Society","https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE10766577"],
+ ["2017","Conference","Certain Composition Formulae for the Fractional Integral Operators","P. Agarwal, Priyanka Harjule","FAIA 2017, Astana (AIP)",""],
+ ["2015","Journal","A General Fractional Differential Equation Associated with an Integral Operator with the H-Function in the Kernel","H.M. Srivastava, Priyanka Harjule, Rashmi Jain","Russian Journal of Mathematical Physics","https://doi.org/10.1134/S1061920815010124"]
+];
+const pubItem=([y,k,t,au,v,d])=>`<div class="pitem"><span class="yr">${y}</span><div><span class="ptype">${k}</span><b>${t}</b><div class="au">${au}</div><div class="ve">${v}</div></div>${d?`<a class="go" href="${d}" target="_blank" rel="noopener">Read paper ↗</a>`:`<span></span>`}</div>`;
+pubRecent.innerHTML=pubs.slice(0,4).map(([y,k,t,au,v,d])=>`<a class="pcard2" href="${d}" target="_blank" rel="noopener"><div class="meta2"><span class="ptype">${k}</span><b>${y}</b></div><h4>${t}</h4><p class="au">${au}</p><p class="ve">${v}</p><span class="read">Read paper ↗</span></a>`).join("");
+let pubFilter="All";
+const renderAll=()=>{const list=pubs.filter(p=>pubFilter==="All"||p[1]===pubFilter);let last="";
+ pubList.innerHTML=list.map(p=>{const h=p[0]!==last?`<div class="pyear">${p[0]}</div>`:"";last=p[0];return h+pubItem(p)}).join("");
+ [...pubChips.children].forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===pubFilter));};
+const kinds=["All","Journal","Conference","Book","Book chapter"];
+pubChips.innerHTML=kinds.map(k=>`<button class="chip" data-f="${k}">${k} (${k==="All"?pubs.length:pubs.filter(p=>p[1]===k).length})</button>`).join("");
+pubChips.onclick=e=>{const c=e.target.closest(".chip");if(c){pubFilter=c.dataset.f;renderAll();}};
+pubMore.textContent=`Show all publications (${pubs.length})`;
+pubMore.onclick=()=>{const open=pubAll.hidden;pubAll.hidden=!open;pubMore.textContent=open?"Show less":`Show all publications (${pubs.length})`;pubMore.setAttribute("aria-expanded",open);if(open)renderAll();};
 workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}" target="_blank" rel="noopener"><div class="icon">${i}</div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Visit website →</span></a>`).join("");
 patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
 const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;

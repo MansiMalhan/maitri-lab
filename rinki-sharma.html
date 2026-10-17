@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Rinki Sharma · MAITRI Lab</title>
+<link rel="icon" href="images/maitri_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="product.css">
+<style>
+.phero{background:linear-gradient(135deg,#0b2545,#0b6e99)}
+.phero .wrap{grid-template-columns:auto 1fr;gap:40px}
+@media(max-width:700px){.phero .wrap{grid-template-columns:1fr}}
+.ph{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.35);background:#cfd8e3}
+.phero h1{margin:6px 0 8px}
+.aff{color:#d6e6f2;font-size:1.02rem}
+.badge{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.contact{margin-top:14px;color:#d6e6f2;font-size:.95rem}
+.contact b{color:#fff;user-select:all}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.bio p{max-width:70ch;font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{background:var(--accent2);color:var(--accent);font-weight:600;font-size:.85rem;padding:5px 12px;border-radius:16px}
+.thesis{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:22px;background:var(--soft)}
+.thesis small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.thesis h3{font-family:"Playfair Display",serif;font-size:1.3rem;margin:8px 0 12px;line-height:1.35}
+.thesis dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.92rem}
+.thesis dt{color:var(--muted)}
+.timeline{list-style:none;display:grid;gap:12px;margin-top:6px}
+.timeline li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.timeline .d{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
+.timeline b{display:block}
+.timeline span{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="back" href="index.html#team">← MAITRI Lab · Team</a>
+  <span class="brand"><img src="images/maitri_logo.png" alt="">MAITRI Lab</span>
+</div></header>
+
+<section class="phero">
+  <div class="wrap">
+    <img class="ph" src="images/people/2021RMA9567_20220521_114006.jpg" alt="Dr. Rinki Sharma">
+    <div>
+      <span class="badge">PhD, MNIT Jaipur · 2026</span>
+      <h1>Dr. Rinki Sharma</h1>
+      <p class="aff">Assistant Professor of Mathematics<br>Department of College Education, Government of Rajasthan</p>
+      
+    </div>
+  </div>
+</section>
+<nav class="subnav" aria-label="On this page"><div class="wrap">
+  <a href="#about">About</a><a href="#thesis">PhD thesis</a><a href="#patents">Patents</a><a href="#papers">Papers</a>
+</div></nav>
+
+<section id="about">
+  <div class="wrap two">
+    <div class="bio">
+      <h2>About</h2>
+      <p>Dr. Rinki Sharma received her master's degree from Motilal Nehru National Institute of Technology (MNNIT) Allahabad and the Ph.D. degree from the Department of Mathematics, Malaviya National Institute of Technology (MNIT) Jaipur, in 2026. She is currently an Assistant Professor of Mathematics in the Department of College Education, Government of Rajasthan. Her research develops fractional-order gradient methods for optimising neural networks and applies them to medical imaging, including deep learning frameworks for silicosis detection from chest X-rays.</p>
+      <div class="chips"><span>Fractional calculus</span><span>Optimisation</span><span>Neural networks</span><span>Deep learning</span><span>Medical imaging</span></div>
+    </div>
+    <div>
+      <h2>Education &amp; career</h2>
+      <ul class="timeline"><li><span class="d"></span><div><b>Assistant Professor of Mathematics</b><span>Department of College Education, Government of Rajasthan · Present</span></div></li><li><span class="d"></span><div><b>Ph.D., Mathematics</b><span>MNIT Jaipur · 2026</span></div></li><li><span class="d"></span><div><b>Master's degree</b><span>MNNIT Allahabad</span></div></li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="thesis" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="thesis" style="background:#fff">
+      <small>PhD thesis</small>
+      <h3>Optimization of Neural Networks based on Fractional Derivatives</h3>
+      <dl><dt>Institute</dt><dd>Department of Mathematics, MNIT Jaipur</dd><dt>Supervisor</dt><dd><a href="profile.html" style="color:var(--accent);font-weight:600">Dr. Priyanka Harjule</a></dd><dt>Awarded</dt><dd>2026</dd></dl>
+    </div>
+  </div>
+</section>
+
+<section id="patents">
+  <div class="wrap">
+    <h2>Patents</h2>
+    <p class="sub">Filed with the Controller General of Patents, Designs &amp; Trade Marks, Government of India.</p>
+    <div class="patents"><div class="pat"><span class="st">Published 28-02-2026</span><h3>Automated Classification System for Silicosis Using Deep Learning and Related Methods</h3><p>Priyanka Harjule, Rinki Sharma, Rajesh Kumar · Reg. No. 202611024092</p></div></div>
+  </div>
+</section>
+
+<section id="papers" style="background:var(--soft)">
+  <div class="wrap">
+    <h2>Research papers</h2>
+    <p class="sub">Publications from PhD research at MAITRI Lab. Click a paper to read it.</p>
+    <div class="plist"><div class="pitem"><span class="yr">2026</span><div><b>An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional-Order Optimisation</b><div class="au">Mukesh Delu, Rinki Sharma, Priyanka Harjule, Rajesh Kumar</div><div class="ve">PReMI 2026, IIT Delhi (Springer)</div></div><a class="go" href="https://doi.org/10.1007/978-3-032-18480-1_37" target="_blank" rel="noopener">Read paper ↗</a></div><div class="pitem"><span class="yr">2025</span><div><b>Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis</b><div class="au">Priyanka Harjule, Rinki Sharma, Rajesh Kumar</div><div class="ve">Chaos, Solitons and Fractals (Elsevier)</div></div><a class="go" href="https://doi.org/10.1016/j.chaos.2025.116009" target="_blank" rel="noopener">Read paper ↗</a></div><div class="pitem"><span class="yr">2025</span><div><b>A Fractional Computation Based Deep Learning Framework for Silicosis Detection</b><div class="au">Rinki Sharma, Priyanka Harjule</div><div class="ve">ICCS 2025, NTU Singapore (Springer)</div></div><a class="go" href="https://doi.org/10.1007/978-3-031-97557-8_4" target="_blank" rel="noopener">Read paper ↗</a></div><div class="pitem"><span class="yr">2024</span><div><b>Modified Gradient Descent Approach Involving Caputo Fractional Derivative with Metaheuristic Optimizer</b><div class="au">Rinki Sharma, Priyanka Harjule</div><div class="ve">J. of Vibration Testing and System Dynamics (L&amp;H Scientific)</div></div><span></span></div><div class="pitem"><span class="yr">2024</span><div><b>Fractional Derivative Approach for Training of Neural Networks</b><div class="au">Rinki Sharma, Priyanka Harjule</div><div class="ve">SoCTA 2024, MNIT Jaipur (Springer)</div></div><a class="go" href="https://doi.org/10.1007/978-981-96-5958-6_29" target="_blank" rel="noopener">Read paper ↗</a></div></div>
+  </div>
+</section>
+
+<footer><div class="wrap">Dr. Rinki Sharma · MAITRI Lab, Department of Mathematics, MNIT Jaipur</div></footer>
+</body>
+</html>

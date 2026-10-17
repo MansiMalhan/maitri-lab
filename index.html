@@ -140,6 +140,8 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 .member{text-align:center;padding:24px;border:1px solid var(--line);border-radius:16px}
 .member .avatar{width:90px;height:90px;margin:0 auto 12px;font-size:1.5rem}
 .member span{color:var(--muted);font-size:.88rem}
+.mlink{display:block;transition:transform .2s,box-shadow .2s,border-color .2s}
+.mlink:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(11,110,153,.13);border-color:var(--accent)}
 
 footer{background:#0b2545;color:#c9d4e3;padding:40px 0;font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
@@ -254,8 +256,8 @@ const team=[
   ["Mr. Harshit","PhD Scholar · 2022RMA9061","Computational statistics","2022rma9061@mnit.ac.in","images/people/2022rma9061_20220823_163530.jpg"],
 ];
 const alumni=[
-  ["Dr. Rinki Sharma","PhD Awarded 2026","Thesis: Optimization of Neural Networks based on Fractional Derivatives","2021RMA9567@mnit.ac.in","images/people/2021RMA9567_20220521_114006.jpg"],
-  ["Dr. Mukesh Delu","PhD Awarded 2026","Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications","2022rma9055@mnit.ac.in","images/people/2022RMA9055_20220823_163407.jpg"],
+  ["Dr. Rinki Sharma","PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan","Thesis: Optimization of Neural Networks based on Fractional Derivatives","","rinki-sharma.html","images/people/2021RMA9567_20220521_114006.jpg"],
+  ["Dr. Mukesh Delu","PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan","Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications","delu.mukesh@rajasthan.gov.in","mukesh-delu.html","images/people/2022RMA9055_20220823_163407.jpg"],
 ];
 const ini=n=>n.split(" ").map(w=>w[0]).join("").slice(0,2);
 // Publications: full list from Dr. Harjule's MNIT profile (+ newer papers). [year, type, title, authors, venue, link]
@@ -322,7 +324,7 @@ workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}"><div class
 patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
 const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;
 teamList.innerHTML=team.map(card).join("");
-alumniList.innerHTML=alumni.map(card).join("");
+alumniList.innerHTML=alumni.map(([n,r,d,e,u,img])=>`<a class="member mlink" href="${u}"><img class="avatar" style="object-fit:cover" src="${img}" alt="${n}"><h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p>${e?`<span style="color:var(--accent);font-size:.82rem;display:block">${e}</span>`:""}<span style="display:inline-block;margin-top:10px;color:var(--accent);font-weight:600;font-size:.9rem">View profile →</span></a>`).join("");
 
 // Research areas: overview, lab papers (with authors + DOI links), public datasets (links go to each dataset's original source)
 const IC={

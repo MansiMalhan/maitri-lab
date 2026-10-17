@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SilicoShield AI · MAITRI Lab</title>
+<link rel="icon" href="images/products/ss-logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="product.css">
+<style>
+:root{--pc:#4f9cff;--pdark:#0f172a}
+.btn{color:#fff}
+.feat .n{background:#e6efff;color:#1d5fd6}
+.xr{background:linear-gradient(160deg,#1e293b,#312e81);border-radius:18px;padding:30px;display:grid;gap:14px;border:1px solid rgba(255,255,255,.1)}
+.xr .row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;color:#dbe4f5;font-size:.92rem}
+.xr .row b{color:#fff}
+.xr .ok{color:#86efac;font-weight:600}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="back" href="index.html#work">← MAITRI Lab</a>
+  <span class="brand"><img src="images/products/ss-logo.svg" alt="">SilicoShield AI</span>
+</div></header>
+
+<section class="phero">
+  <div class="wrap">
+    <div>
+      <div class="logo"><img src="images/products/ss-logo.svg" alt="SilicoShield AI logo" style="background:transparent;padding:0"><span>SilicoShield AI</span></div>
+      <div class="eyebrow">AI-assisted silicosis screening</div>
+      <h1>Early detection saves lives</h1>
+      <p class="lead">Silicosis is an incurable lung disease that affects stone, mining and quarry workers across Rajasthan. SilicoShield AI screens a chest X-ray for silicosis in seconds so that workers at risk can be referred early.</p>
+      <div class="ctas">
+        <a class="btn" href="https://silicoshield-frontend.vercel.app" target="_blank" rel="noopener">Try SilicoShield AI ↗</a>
+        <a class="btn ghost" href="#research">Research behind it</a>
+      </div>
+      <div class="facts">
+        <div><b>&lt;3 s</b><span>Analysis time</span></div>
+        <div><b>VGG19</b><span>Deep learning model</span></div>
+        <div><b>2</b><span>Patents</span></div>
+      </div>
+    </div>
+    <div class="xr" aria-label="How a SilicoShield AI screening works">
+      <div class="row"><span>1 · Upload</span><b>PA chest X-ray (JPG, PNG, DICOM)</b></div>
+      <div class="row"><span>2 · Analyse</span><b>Deep learning screening</b></div>
+      <div class="row"><span>3 · Result</span><b>Silicosis likelihood + confidence</b></div>
+      <div class="row"><span>Privacy</span><span class="ok">Images processed in memory, not stored</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="sub">A screening aid for radiologists and occupational health camps. Results are always reviewed by a qualified radiologist or physician.</p>
+    <div class="feat">
+      <div><span class="n">1</span><h3>Fast screening</h3><p>Upload one or many chest X-rays and get a result in under three seconds per image.</p></div>
+      <div><span class="n">2</span><h3>Research-backed</h3><p>Built on the lab's silicosis research, including fractional-order gradient optimisers designed for training deep networks on small medical datasets.</p></div>
+      <div><span class="n">3</span><h3>Privacy first</h3><p>Images travel over HTTPS, are processed in memory and are discarded after analysis. No medical images are stored.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="val">
+  <div class="wrap">
+    <h2>Funded projects</h2>
+    <p class="sub">SilicoShield AI grew out of government-funded projects led by Dr. Priyanka Harjule as Principal Investigator.</p>
+    <div class="cols">
+      <div class="box"><h3>AI-based model to assist radiologists in silicosis screening using chest X-rays</h3><ul><li>Directorate of Specially Abled Persons, Government of Rajasthan</li><li>2022 – 2024 · ₹9.40 lakh</li></ul></div>
+      <div class="box"><h3>AI model for screening and staging pneumoconiosis using chest X-rays</h3><ul><li>SERB VRITIKA</li><li>2022 · ₹1.50 lakh</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research behind it</h2>
+    <p class="sub">Patents and papers that SilicoShield AI is built on.</p>
+    <h3 style="margin-bottom:14px">Patents</h3>
+    <div class="patents" style="margin-bottom:34px">
+      <div class="pat"><span class="st g">Granted 02-09-2025</span><h3>SILICO-AI: An AI-Based Portable Computer-Aided Diagnostic System for Silicosis Disease</h3><p>Kuldeep Singh, Faisel Mushtaq, Satyendra S. Chouhan, Sandeep Mandia, Rajesh Kumar, Priyanka Harjule · Reg. No. 202311063986</p></div>
+      <div class="pat"><span class="st">Published 28-02-2026</span><h3>Automated Classification System for Silicosis Using Deep Learning and Related Methods</h3><p>Priyanka Harjule, Rinki Sharma, Rajesh Kumar · Reg. No. 202611024092</p></div>
+    </div>
+    <h3 style="margin-bottom:14px">Papers</h3>
+    <div class="plist" id="plist"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Try SilicoShield AI</h2>
+    <p>Remove patient names and IDs from images before uploading. SilicoShield AI supports screening and does not replace a radiologist's diagnosis.</p>
+    <div class="ctas"><a class="btn" href="https://silicoshield-frontend.vercel.app" target="_blank" rel="noopener">Open SilicoShield AI ↗</a><a class="btn ghost" href="index.html">Back to MAITRI Lab</a></div>
+  </div>
+</section>
+
+<footer><div class="wrap">SilicoShield AI · MAITRI Lab, Department of Mathematics, MNIT Jaipur</div></footer>
+
+<script>
+const P=[
+ ["2025","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, Priyanka Harjule","ICCS 2025, NTU Singapore (Springer)","https://doi.org/10.1007/978-3-031-97557-8_4"],
+ ["2025","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","Priyanka Harjule, Rinki Sharma, Rajesh Kumar","Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
+ ["2024","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","Faisel Mushtaq, Saunak Bhattacharjee, Sandeep Mandia, Kuldeep Singh, Satyendra Singh Chouhan, Rajesh Kumar, Priyanka Harjule","Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
+ ["2024","Fractional Derivative Approach for Training of Neural Networks","Rinki Sharma, Priyanka Harjule","SoCTA 2024, MNIT Jaipur (Springer)","https://doi.org/10.1007/978-981-96-5958-6_29"],
+ ["2023","Silicosis Detection Using Extended Transfer Learning Model","G.K. Sharma, Priyanka Harjule, Basant Agarwal, Rajesh Kumar","RTIP2R 2023, University of Derby, UK (Springer)",""]
+];
+plist.innerHTML=P.map(([y,t,a,v,d])=>`<div class="pitem"><span class="yr">${y}</span><div><b>${t}</b><div class="au">${a}</div><div class="ve">${v}</div></div>${d?`<a class="go" href="${d}" target="_blank" rel="noopener">Read paper ↗</a>`:"<span></span>"}</div>`).join("");
+</script>
+</body>
+</html>

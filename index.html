@@ -238,8 +238,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 <script>
 // Edit these arrays to update content
 const work=[
-  ["👁️","ChakshuRakshak AI","AI-based diabetic retinopathy screening from retinal fundus images.","https://www.chakshurakshakai.com"],
-  ["🫁","SilicoShield","AI-assisted silicosis detection from chest X-rays.","https://silicoshield-frontend.vercel.app"],
+  ["images/products/cr-logo.svg","ChakshuRakshak AI","AI-based diabetic retinopathy screening from retinal fundus images. Now in clinical validation at SMS Hospital, Jaipur.","chakshurakshak.html"],
+  ["images/products/ss-logo.svg","SilicoShield AI","AI-assisted silicosis detection from chest X-rays, built on our fractional-optimiser research.","silicoshield.html"],
 ];
 const patents=[
   ["AI-Driven Framework for Diabetic Retinopathy Grading and Related Methods","Priyanka Harjule, Mukesh Delu, Rajesh Kumar","Reg. No. 202611024093","Published 28-02-2026"],
@@ -318,7 +318,7 @@ pubChips.innerHTML=kinds.map(k=>`<button class="chip" data-f="${k}">${k} (${k===
 pubChips.onclick=e=>{const c=e.target.closest(".chip");if(c){pubFilter=c.dataset.f;renderAll();}};
 pubMore.textContent=`Show all publications (${pubs.length})`;
 pubMore.onclick=()=>{const open=pubAll.hidden;pubAll.hidden=!open;pubMore.textContent=open?"Show less":`Show all publications (${pubs.length})`;pubMore.setAttribute("aria-expanded",open);if(open)renderAll();};
-workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}" target="_blank" rel="noopener"><div class="icon">${i}</div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Visit website →</span></a>`).join("");
+workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}"><div class="icon" style="background:#fff;border:1px solid var(--line)"><img src="${i}" alt="" style="width:34px;height:34px"></div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Learn more →</span></a>`).join("");
 patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
 const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;
 teamList.innerHTML=team.map(card).join("");

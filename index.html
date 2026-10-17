@@ -76,27 +76,54 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 
 /* Patents */
 #research{background:var(--soft)}
-.rtabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
-.rtab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 18px;border-radius:30px;font:600 .95rem Inter,sans-serif;cursor:pointer}
-.rtab:hover{border-color:var(--accent)}
-.rtab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.rtab:focus-visible{outline:3px solid #3fc1e8;outline-offset:2px}
-.rpanel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;display:grid;gap:26px}
-.rpanel h3{font-family:"Playfair Display",serif;font-size:1.6rem}
-.rpanel h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.rpanel .lead-p{max-width:75ch;color:var(--ink)}
-.rpanel ul.rp{list-style:none;padding:0;display:grid;gap:10px}
-.rpanel ul.rp li{border-left:3px solid var(--accent);padding:4px 0 4px 14px}
-.rpanel ul.rp b{display:block}
-.rpanel ul.rp span{color:var(--muted);font-size:.88rem}
-.rpanel .tool{display:inline-block;margin-top:4px;color:var(--accent);font-weight:600}
-.dtable{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
-.dtable table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:620px}
-.dtable th,.dtable td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-.dtable th{background:var(--soft);font-weight:600}
-.dtable tr:last-child td{border-bottom:0}
-.dtable a{color:var(--accent);font-weight:600;white-space:nowrap}
-.note{font-size:.85rem;color:var(--muted)}
+.rcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.rcards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.rcards{grid-template-columns:1fr}}
+.rcard{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;gap:12px;min-height:250px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.rcard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(11,110,153,.13);border-color:var(--accent)}
+.rcard:focus-visible{outline:3px solid #3fc1e8;outline-offset:3px}
+.rcard[aria-expanded="true"]{background:linear-gradient(150deg,#0b2545,#0b6e99);color:#fff;border-color:transparent}
+.rcard .ic{width:58px;height:58px;border-radius:16px;background:var(--accent2);display:grid;place-items:center}
+.rcard[aria-expanded="true"] .ic{background:rgba(255,255,255,.14)}
+.rcard .ic svg{width:34px;height:34px}
+.rcard h3{font-family:"Playfair Display",serif;font-size:1.45rem;line-height:1.2}
+.rcard p{font-size:.92rem;color:var(--muted);flex:1}
+.rcard[aria-expanded="true"] p{color:#d6e6f2}
+.rcard .meta{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:600;color:var(--accent)}
+.rcard[aria-expanded="true"] .meta{color:#7fd6f2}
+.rcard .chev{transition:transform .25s}
+.rcard[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.rdetail{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;display:grid;gap:34px;animation:rIn .35s ease}
+@keyframes rIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.rdetail,.rcard,.rcard .chev{animation:none;transition:none}}
+.rdetail .top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.rdetail .top p{max-width:72ch;font-size:1.02rem}
+.rdetail .close{all:unset;cursor:pointer;color:var(--muted);font-size:.88rem;font-weight:600;padding:6px 12px;border:1px solid var(--line);border-radius:20px}
+.rdetail .close:hover{color:var(--accent);border-color:var(--accent)}
+.toolbtn{display:inline-flex;gap:8px;align-items:center;margin-top:14px;background:var(--accent);color:#fff;padding:9px 18px;border-radius:24px;font-weight:600;font-size:.9rem}
+.rhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.rhead h4{font-family:"Playfair Display",serif;font-size:1.3rem}
+.rhead span{font-size:.85rem;color:var(--muted)}
+.plist{display:grid;gap:12px;margin-top:14px}
+.pitem{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;padding:16px 18px;border:1px solid var(--line);border-radius:14px;transition:border-color .2s,background .2s}
+.pitem:hover{border-color:var(--accent);background:#f7fbfd}
+.pitem .yr{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:2px}
+.pitem b{display:block;line-height:1.4}
+.pitem .au{font-size:.87rem;color:var(--ink);margin-top:4px}
+.pitem .ve{font-size:.84rem;color:var(--muted);font-style:italic}
+.pitem a.go{white-space:nowrap;font-size:.85rem;font-weight:600;color:var(--accent);border:1px solid var(--accent);border-radius:20px;padding:5px 13px}
+.pitem a.go:hover{background:var(--accent);color:#fff}
+@media(max-width:620px){.pitem{grid-template-columns:1fr}}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.dcard{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:14px;background:var(--soft);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
+.dcard .dt{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dcard .dt b{font-size:1.02rem}
+.dcard .badge{font-size:.72rem;font-weight:600;background:#fff;border:1px solid var(--line);color:var(--muted);padding:2px 9px;border-radius:12px;white-space:nowrap}
+.dcard p{font-size:.86rem;color:var(--muted);flex:1}
+.dcard a{align-self:flex-start;font-size:.85rem;font-weight:600;color:#fff;background:var(--accent);padding:6px 14px;border-radius:18px}
+.dcard a:hover{background:#085a7d}
+.note{font-size:.85rem;color:var(--muted);margin-top:10px}
 #patents{background:#fff}
 .patent{background:#fff;border-left:4px solid var(--accent);border-radius:10px;padding:24px}
 .patent .no{font-size:.8rem;color:var(--muted)}
@@ -169,9 +196,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 <section id="research">
   <div class="wrap">
     <h2>Research Areas</h2>
-    <p class="sub">Four application areas, one mathematical core: fractional calculus, optimisation and statistics for AI.</p>
-    <div class="rtabs" role="tablist" id="rtabs"></div>
-    <div id="rpanel"></div>
+    <p class="sub">Four application areas, one mathematical core: fractional calculus, optimisation and statistics for AI. Click an area to see our papers and the public datasets behind it.</p>
+    <div class="rcards" id="rcards"></div>
+    <div id="rdetail"></div>
   </div>
 </section>
 
@@ -262,64 +289,111 @@ const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" styl
 teamList.innerHTML=team.map(card).join("");
 alumniList.innerHTML=alumni.map(card).join("");
 
-// Research areas: overview, lab papers, public datasets (links go to each dataset's original source)
+// Research areas: overview, lab papers (with authors + DOI links), public datasets (links go to each dataset's original source)
+const IC={
+ retina:`<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 20 Q20 4 37 20 Q20 36 3 20Z"/><circle cx="20" cy="20" r="7"/><circle cx="20" cy="20" r="2.6" fill="currentColor"/></svg>`,
+ silicosis:`<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 5v12"/><path d="M20 17c-3 0-5 3-8 3-4 0-6 4-6 9 0 4 2 6 5 6 5 0 7-6 7-12"/><path d="M20 17c3 0 5 3 8 3 4 0 6 4 6 9 0 4-2 6-5 6-5 0-7-6-7-12"/></svg>`,
+ dengue:`<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 32 C10 32 12 10 18 10 C24 10 24 26 30 26 C33 26 34 20 36 18"/><path d="M4 36h32" opacity=".5"/><circle cx="18" cy="10" r="2.5" fill="currentColor"/><circle cx="30" cy="26" r="2.5" fill="currentColor"/></svg>`,
+ llm:`<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M5 8h30v19H17l-8 7v-7H5z"/><path d="M11 15h18M11 20h12" stroke-linecap="round"/></svg>`
+};
 const areas=[
- {id:"retina",name:"Retinal Diseases",
+ {id:"retina",name:"Retinal Diseases",short:"Fractional operators and deep networks for retinal vessels, lesions and diabetic retinopathy grading.",
   text:"Diabetic retinopathy is a leading cause of preventable blindness. We design fractional-order operators and deep networks for retinal vessel segmentation, lesion detection and DR grading from colour fundus photographs, and deploy them for screening through ChakshuRakshak AI.",
   tool:["ChakshuRakshak AI","https://www.chakshurakshakai.com"],
-  papers:[["F2D-RetinaNet: a feature-to-decision dual-path network with fractional operators for retinal disease detection and grading","Scientific Reports (Nature), 2026","https://doi.org/10.1038/s41598-026-75441-z"],
-   ["A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","Fractal and Fractional (MDPI), 2026","https://doi.org/10.3390/fractalfract10040246"],
-   ["A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","IJMEMS, 2026","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
-   ["An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional Order Optimisation","PReMI 2026, IIT Delhi",""],
-   ["Fractional Frangi: Retinal Vessel Enhancement Filtering","SoCTA 2024",""],
-   ["Extraction of Retinal Vasculature With Fractional Fuzzy Logic","MIND 2024",""]],
-  data:[["IDRiD","Colour fundus","516 images; DR & DME grades, pixel-level lesion masks, optic disc / fovea","https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid"],
-   ["DDR","Colour fundus","13,673 images; DR grading, 757 with lesion masks","https://github.com/nkicsl/DDR-dataset"],
-   ["MESSIDOR-2","Colour fundus","1,748 images for DR screening","https://www.adcis.net/en/third-party/messidor2/"],
-   ["APTOS 2019","Colour fundus","3,662 labelled images, 5 DR grades","https://www.kaggle.com/c/aptos2019-blindness-detection"],
-   ["EyePACS (Kaggle DR)","Colour fundus","~88,000 images, 5 DR grades","https://www.kaggle.com/c/diabetic-retinopathy-detection"],
-   ["DRIVE","Colour fundus","40 images with manual vessel segmentations","https://drive.grand-challenge.org/"],
-   ["e-ophtha","Colour fundus","Microaneurysm and exudate annotations","https://www.adcis.net/en/third-party/e-ophtha/"]]},
- {id:"silicosis",name:"Silicosis",
+  papers:[
+   ["2026","F2D-RetinaNet: a feature-to-decision dual-path network with fractional operators for retinal disease detection and grading","Mukesh Delu, Priyanka Harjule, Rajesh Kumar, Kushal Gajjar, Pilani Nkomozepi","Scientific Reports (Nature)","https://doi.org/10.1038/s41598-026-75441-z"],
+   ["2026","A Mathematical Framework for Retinal Vessel Segmentation: Fractional Hessian-Based Curvature Analysis","Priyanka Harjule, Mukesh Delu, Rajesh Kumar, Pilani Nkomozepi","Fractal and Fractional (MDPI)","https://doi.org/10.3390/fractalfract10040246"],
+   ["2026","A Harmonized Multi-Source Dataset with Baseline Deep Learning Validation for Staging Diabetic Retinopathy","Mukesh Delu, Priyanka Harjule, Rajesh Kumar, Kushal Gajjar","Int. J. of Mathematical, Engineering and Management Sciences","https://doi.org/10.33889/IJMEMS.2026.11.1.007"],
+   ["2026","An Improved Deep Learning Framework for Diabetic Retinopathy Screening Using Fractional-Order Optimisation","Mukesh Delu, Rinki Sharma, Priyanka Harjule, Rajesh Kumar","PReMI 2026, IIT Delhi (Springer)","https://doi.org/10.1007/978-3-032-18480-1_37"],
+   ["2024","Fractional Frangi: Retinal Vessel Enhancement Filtering","Mukesh Delu, Priyanka Harjule","SoCTA 2024, MNIT Jaipur (Springer)","https://doi.org/10.1007/978-981-96-5958-6_27"],
+   ["2024","Extraction of Retinal Vasculature with Fractional Fuzzy Logic","Mukesh Delu, Priyanka Harjule, Sudipta Barman","MIND 2024, Goa (Springer)","https://doi.org/10.1007/978-3-032-14534-5_12"]],
+  data:[
+   ["IDRiD","Fundus · DR","516 images with DR/DME grades, pixel-level lesion masks, optic disc and fovea","https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid"],
+   ["DDR","Fundus · DR","13,673 images for DR grading; 757 with lesion masks","https://github.com/nkicsl/DDR-dataset"],
+   ["MESSIDOR","Fundus · DR","1,200 images with retinopathy and macular edema grades","https://www.adcis.net/en/third-party/messidor/"],
+   ["MESSIDOR-2","Fundus · DR","1,748 images for DR screening","https://www.adcis.net/en/third-party/messidor2/"],
+   ["APTOS 2019","Fundus · DR","3,662 labelled images across 5 DR grades","https://www.kaggle.com/c/aptos2019-blindness-detection"],
+   ["EyePACS (Kaggle DR)","Fundus · DR","About 88,000 images across 5 DR grades","https://www.kaggle.com/c/diabetic-retinopathy-detection"],
+   ["DeepDRiD","Fundus · DR","Regular and ultra-widefield images with grading and quality labels","https://github.com/deepdrdoc/DeepDRiD"],
+   ["FGADR","Fundus · lesions","Fine-grained DR lesion annotations and grades","https://csyizhou.github.io/FGADR/"],
+   ["Retinal-Lesions","Fundus · lesions","1,593 images with lesion segmentation and DR grades","https://github.com/WeiQijie/retinal-lesions"],
+   ["e-ophtha","Fundus · lesions","Microaneurysm and exudate annotations","https://www.adcis.net/en/third-party/e-ophtha/"],
+   ["DRIVE","Fundus · vessels","40 images with manual vessel segmentations","https://drive.grand-challenge.org/"],
+   ["HRF","Fundus · vessels","High-resolution images of healthy, DR and glaucoma eyes with vessel masks","https://www5.cs.fau.de/research/data/fundus-images/"],
+   ["ODIR-5K","Fundus · multi-disease","5,000 patients, 8 disease categories, both eyes","https://odir2019.grand-challenge.org/"],
+   ["RFMiD","Fundus · multi-disease","3,200 images with 46 retinal conditions","https://riadd.grand-challenge.org/"],
+   ["BRSET","Fundus · multi-disease","Brazilian ophthalmological set with demographics and labels","https://physionet.org/content/brazilian-ophthalmological/1.0.0/"]]},
+ {id:"silicosis",name:"Silicosis",short:"Fractional-optimiser deep learning that screens chest X-rays for silicosis and pneumoconiosis.",
   text:"Silicosis is an incurable occupational lung disease common among stone and mining workers in Rajasthan. We build fractional-optimiser deep learning models that screen chest X-rays for silicosis and pneumoconiosis, packaged as the SilicoShield tool for radiologists.",
   tool:["SilicoShield","https://silicoshield-frontend.vercel.app"],
-  papers:[["A Fractional Computation Based Deep Learning Framework for Silicosis Detection","ICCS 2025, NTU Singapore (Springer)",""],
-   ["Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","Engineering Applications of AI (Elsevier), 2024","https://doi.org/10.1016/j.engappai.2024.108516"],
-   ["Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","Chaos, Solitons and Fractals (Elsevier), 2025","https://doi.org/10.1016/j.chaos.2025.116009"]],
-  data:[["NIH ChestX-ray14","Chest X-ray","112,120 frontal X-rays, 14 thoracic disease labels","https://nihcc.app.box.com/v/ChestXray-NIHCC"],
+  papers:[
+   ["2025","A Fractional Computation Based Deep Learning Framework for Silicosis Detection","Rinki Sharma, Priyanka Harjule","ICCS 2025, NTU Singapore (Springer)","https://doi.org/10.1007/978-3-031-97557-8_4"],
+   ["2025","Fractional-order gradient approach for optimizing neural networks: A theoretical and empirical analysis","Priyanka Harjule, Rinki Sharma, Rajesh Kumar","Chaos, Solitons and Fractals (Elsevier)","https://doi.org/10.1016/j.chaos.2025.116009"],
+   ["2024","Artificial intelligence for computer aided detection of pneumoconiosis: A succinct review since 1974","Faisel Mushtaq, Saunak Bhattacharjee, Sandeep Mandia, Kuldeep Singh, Satyendra Singh Chouhan, Rajesh Kumar, Priyanka Harjule","Engineering Applications of AI (Elsevier)","https://doi.org/10.1016/j.engappai.2024.108516"],
+   ["2024","Fractional Derivative Approach for Training of Neural Networks","Rinki Sharma, Priyanka Harjule","SoCTA 2024, MNIT Jaipur (Springer)","https://doi.org/10.1007/978-981-96-5958-6_29"]],
+  data:[
+   ["NIH ChestX-ray14","Chest X-ray","112,120 frontal X-rays with 14 thoracic disease labels","https://nihcc.app.box.com/v/ChestXray-NIHCC"],
    ["VinDr-CXR","Chest X-ray","18,000 X-rays with radiologist bounding boxes","https://physionet.org/content/vindr-cxr/1.0.0/"],
-   ["CheXpert","Chest X-ray","224,316 X-rays, 14 observations","https://stanfordmlgroup.github.io/competitions/chexpert/"],
-   ["Shenzhen & Montgomery","Chest X-ray","Tuberculosis X-ray sets from the U.S. National Library of Medicine","https://lhncbc.nlm.nih.gov/LHC-publications/pubs/TuberculosisChestXrayImageDataSets.html"]],
-  note:"Large public datasets labelled specifically for silicosis are scarce; general chest X-ray sets are used for pre-training and transfer."},
- {id:"dengue",name:"Dengue Modelling",
+   ["CheXpert","Chest X-ray","224,316 X-rays with 14 observations","https://stanfordmlgroup.github.io/competitions/chexpert/"],
+   ["MIMIC-CXR","Chest X-ray + reports","377,110 X-rays with free-text radiology reports (credentialed access)","https://physionet.org/content/mimic-cxr/2.1.0/"],
+   ["Shenzhen & Montgomery","Chest X-ray · TB","Tuberculosis X-ray sets from the U.S. National Library of Medicine","https://lhncbc.nlm.nih.gov/LHC-publications/pubs/TuberculosisChestXrayImageDataSets.html"],
+   ["JSRT","Chest X-ray · nodules","247 X-rays with and without lung nodules","http://db.jsrt.or.jp/eng.php"],
+   ["RSNA Pneumonia","Chest X-ray","~30,000 X-rays with pneumonia bounding boxes","https://www.kaggle.com/c/rsna-pneumonia-detection-challenge"],
+   ["COVID-QU-Ex","Chest X-ray + lung masks","33,920 X-rays with lung segmentation masks","https://www.kaggle.com/datasets/anasmohammedtahir/covidqu"]],
+  note:"Large public datasets labelled specifically for silicosis are scarce, so general chest X-ray collections are used for pre-training and transfer learning."},
+ {id:"dengue",name:"Dengue Modelling",short:"Integer and fractional-order transmission models, climate drivers and physics-informed forecasting.",
   text:"We model dengue transmission with integer- and Caputo fractional-order compartmental systems whose memory captures delayed infection dynamics, couple them with climate drivers and Bayesian decision support, and forecast outbreaks with fractional physics-informed neural networks.",
-  papers:[["A climate-informed dengue transmission model with Bayesian decision support","Acta Tropica (Elsevier), 2026","https://doi.org/10.1016/j.actatropica.2026.108037"],
-   ["A hybrid integer-Caputo fractional order dengue transmission model: Parameter optimization and empirical study with real-world data","Mathematics and Computers in Simulation (Elsevier), 2025","https://doi.org/10.1016/j.matcom.2025.11.040"],
-   ["A Fractional Physics-Informed Neural Network With Ensemble Learning for Dengue Forecasting","ICCS 2026, Hamburg (Springer)",""],
-   ["Mathematical Modelling and Analysis of Dengue Transmission Dynamics","Procedia Computer Science, 2024","https://doi.org/10.1016/j.procs.2024.04.053"]],
-  data:[["OpenDengue","Case counts","Global national and sub-national dengue case data","https://opendengue.org/"],
+  papers:[
+   ["2026","A climate-informed dengue transmission model with Bayesian decision support","Priyanka Harjule, Harshit, Divyansh Ramola, Rajesh Kumar, Pilani Nkomozepi","Acta Tropica (Elsevier)","https://doi.org/10.1016/j.actatropica.2026.108037"],
+   ["2026","A Fractional Physics-Informed Neural Network with Ensemble Learning for Dengue Forecasting","Harshit, Priyanka Harjule","ICCS 2026, Hamburg (Springer)","https://doi.org/10.1007/978-3-032-29912-3_30"],
+   ["2025","A hybrid integer-Caputo fractional order dengue transmission model: Parameter optimization and empirical study with real-world data","Priyanka Harjule, Harshit, Rajesh Kumar","Mathematics and Computers in Simulation (Elsevier)","https://doi.org/10.1016/j.matcom.2025.11.040"],
+   ["2024","Mathematical Modelling and Analysis of Dengue Transmission Dynamics","Harshit, Priyanka Harjule","Procedia Computer Science (Elsevier)","https://doi.org/10.1016/j.procs.2024.04.053"]],
+  data:[
+   ["OpenDengue","Case counts","Global national and sub-national dengue case data","https://opendengue.org/"],
+   ["WHO Global Dengue Surveillance","Case counts","WHO dashboard of reported cases and deaths by country","https://worldhealthorg.shinyapps.io/dengue_global/"],
    ["NCVBDC India","Case counts","State-wise dengue cases and deaths, Govt. of India","https://ncvbdc.mohfw.gov.in/"],
-   ["DengAI (DrivenData)","Cases + climate","Weekly cases with climate covariates, San Juan and Iquitos","https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/"],
-   ["NASA POWER","Climate","Daily temperature, rainfall and humidity for any location","https://power.larc.nasa.gov/"]]},
- {id:"llm",name:"Language Models",
+   ["DengAI (DrivenData)","Cases + climate","Weekly cases with climate covariates for San Juan and Iquitos","https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/"],
+   ["NASA POWER","Climate","Daily temperature, rainfall and humidity for any location","https://power.larc.nasa.gov/"],
+   ["ERA5 (Copernicus)","Climate reanalysis","Hourly global weather variables from 1940 to today","https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels"]]},
+ {id:"llm",name:"Language Models",short:"How reliable transformer language models are on question answering, including medical text.",
   text:"We study how reliable transformer language models are: how BERT-family and larger models behave on question answering when inputs are perturbed or out of distribution, and how to measure and improve their trustworthiness for real use, including medical text.",
-  papers:[["Assessing reliability of BERT-based models on question answering tasks","J. Experimental & Theoretical AI (Taylor & Francis), 2026","https://doi.org/10.1080/0952813X.2026.2716084"]],
-  data:[["SQuAD","Reading comprehension","100,000+ questions on Wikipedia (v2.0 adds unanswerable)","https://rajpurkar.github.io/SQuAD-explorer/"],
+  papers:[
+   ["2026","Assessing reliability of BERT-based models on question answering tasks","Pooja Yadav, Priyanka Harjule, Basant Agarwal, Marko Robnik-Šikonja","J. of Experimental & Theoretical AI (Taylor & Francis)","https://doi.org/10.1080/0952813X.2026.2716084"]],
+  data:[
+   ["SQuAD","Reading comprehension","100,000+ questions on Wikipedia; v2.0 adds unanswerable ones","https://rajpurkar.github.io/SQuAD-explorer/"],
    ["Natural Questions","Open-domain QA","Real Google search queries with Wikipedia answers","https://ai.google.com/research/NaturalQuestions"],
    ["TriviaQA","Reading comprehension","650,000 question-answer-evidence triples","https://nlp.cs.washington.edu/triviaqa/"],
    ["HotpotQA","Multi-hop QA","113,000 questions needing reasoning over several documents","https://hotpotqa.github.io/"],
+   ["AdversarialQA","Robustness","Questions written to fool QA models","https://adversarialqa.github.io/"],
+   ["BoolQ","Yes/no QA","16,000 naturally occurring yes/no questions","https://github.com/google-research-datasets/boolean-questions"],
+   ["TruthfulQA","Truthfulness","817 questions that test whether models repeat falsehoods","https://github.com/sylinrl/TruthfulQA"],
+   ["MMLU","Knowledge benchmark","Multiple-choice questions across 57 subjects","https://github.com/hendrycks/test"],
+   ["IndicQA","Indian languages QA","Reading comprehension in 11 Indian languages","https://huggingface.co/datasets/ai4bharat/IndicQA"],
    ["MedQA","Medical QA","Medical licensing exam questions (USMLE and others)","https://github.com/jind11/MedQA"],
+   ["MedMCQA","Medical QA","194,000 questions from Indian medical entrance exams (AIIMS, NEET PG)","https://medmcqa.github.io/"],
    ["PubMedQA","Biomedical QA","Yes/no/maybe questions from PubMed abstracts","https://pubmedqa.github.io/"],
+   ["emrQA","Clinical QA","Question answering over electronic medical records","https://github.com/panushri25/emrQA"],
    ["BioASQ","Biomedical QA","Benchmark challenges for biomedical semantic QA","http://bioasq.org/"]]}
 ];
-const showArea=k=>{const a=areas.find(x=>x.id===k);
- [...rtabs.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
- rpanel.innerHTML=`<div class="rpanel" role="tabpanel"><div><h3>${a.name}</h3><p class="lead-p">${a.text}</p>${a.tool?`<a class="tool" href="${a.tool[1]}" target="_blank" rel="noopener">Try ${a.tool[0]} →</a>`:""}</div>
- <div><h4>Our papers</h4><ul class="rp">${a.papers.map(([t,v,d])=>`<li><b>${d?`<a href="${d}" target="_blank" rel="noopener" style="color:inherit">${t}</a>`:t}</b><span>${v}</span></li>`).join("")}</ul></div>
- <div><h4>Public datasets</h4><div class="dtable"><table><thead><tr><th>Dataset</th><th>Type</th><th>What it contains</th><th>Source</th></tr></thead><tbody>${a.data.map(([n,t,c,u])=>`<tr><td><b>${n}</b></td><td>${t}</td><td>${c}</td><td><a href="${u}" target="_blank" rel="noopener">Original repository ↗</a></td></tr>`).join("")}</tbody></table></div>${a.note?`<p class="note" style="margin-top:8px">${a.note}</p>`:""}</div></div>`;};
-rtabs.innerHTML=areas.map(a=>`<button class="rtab" role="tab" data-k="${a.id}">${a.name}</button>`).join("");
-rtabs.onclick=e=>{const b=e.target.closest(".rtab");if(b)showArea(b.dataset.k)};
-showArea("retina");
+let openArea=null;
+const renderCards=()=>{rcards.innerHTML=areas.map(a=>`<button class="rcard" data-k="${a.id}" aria-expanded="${openArea===a.id}" aria-controls="rdetail">
+ <div class="ic" style="color:${openArea===a.id?"#7fd6f2":"var(--accent)"}">${IC[a.id]}</div><h3>${a.name}</h3><p>${a.short}</p>
+ <div class="meta"><span>${a.papers.length} paper${a.papers.length>1?"s":""} · ${a.data.length} datasets</span><span class="chev">▾</span></div></button>`).join("");};
+const renderDetail=()=>{const a=areas.find(x=>x.id===openArea);
+ if(!a){rdetail.innerHTML="";return;}
+ rdetail.innerHTML=`<div class="rdetail">
+  <div class="top"><div><h3 style="font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:8px">${a.name}</h3><p>${a.text}</p>
+   ${a.tool?`<a class="toolbtn" href="${a.tool[1]}" target="_blank" rel="noopener">Try ${a.tool[0]} ↗</a>`:""}</div>
+   <button class="close" id="rclose">Close ✕</button></div>
+  <div><div class="rhead"><h4>Our papers</h4><span>Click a paper to read it</span></div>
+   <div class="plist">${a.papers.map(([y,t,au,v,d])=>`<div class="pitem"><span class="yr">${y}</span><div><b>${t}</b><div class="au">${au}</div><div class="ve">${v}</div></div><a class="go" href="${d}" target="_blank" rel="noopener">Read paper ↗</a></div>`).join("")}</div></div>
+  <div><div class="rhead"><h4>Publicly available datasets</h4><span>Free to access from their original sources — click to open</span></div>
+   <div class="dgrid">${a.data.map(([n,t,c,u])=>`<div class="dcard"><div class="dt"><b>${n}</b><span class="badge">${t}</span></div><p>${c}</p><a href="${u}" target="_blank" rel="noopener">Access dataset ↗</a></div>`).join("")}</div>
+   ${a.note?`<p class="note">${a.note}</p>`:""}</div></div>`;
+ rclose.onclick=()=>{openArea=null;renderCards();renderDetail();document.getElementById("research").scrollIntoView({behavior:"smooth"});};};
+rcards.onclick=e=>{const b=e.target.closest(".rcard");if(!b)return;openArea=openArea===b.dataset.k?null:b.dataset.k;renderCards();renderDetail();
+ if(openArea)rdetail.scrollIntoView({behavior:"smooth",block:"start"});};
+renderCards();renderDetail();
 </script>
 </body>
 </html>

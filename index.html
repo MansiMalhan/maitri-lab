@@ -378,7 +378,7 @@ const areas=[
 let openArea=null;
 const renderCards=()=>{rcards.innerHTML=areas.map(a=>`<button class="rcard" data-k="${a.id}" aria-expanded="${openArea===a.id}" aria-controls="rdetail">
  <div class="ic" style="color:${openArea===a.id?"#7fd6f2":"var(--accent)"}">${IC[a.id]}</div><h3>${a.name}</h3><p>${a.short}</p>
- <div class="meta"><span>${a.papers.length} paper${a.papers.length>1?"s":""} · ${a.data.length} datasets</span><span class="chev">▾</span></div></button>`).join("");};
+ <div class="meta" style="justify-content:flex-end"><span class="chev" aria-hidden="true">▾</span></div></button>`).join("");};
 const renderDetail=()=>{const a=areas.find(x=>x.id===openArea);
  if(!a){rdetail.innerHTML="";return;}
  rdetail.innerHTML=`<div class="rdetail">

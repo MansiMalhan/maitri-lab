@@ -26,7 +26,12 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 @media(max-width:800px){.links{display:none}}
 
 /* Hero */
-.hero{background:linear-gradient(135deg,#0b2545 0%,#0b6e99 100%);color:#fff;padding:110px 0 100px;text-align:center}
+.hero{background:linear-gradient(135deg,#0b2545 0%,#0b6e99 100%);color:#fff;padding:120px 0 110px;text-align:center;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.mathbg{position:absolute;inset:0;pointer-events:none}
+.mathbg span{position:absolute;color:#bfe9f7;font-family:"Playfair Display",serif;white-space:nowrap;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateY(0) rotate(var(--r))}to{transform:translateY(-14px) rotate(var(--r))}}
+@media(prefers-reduced-motion:reduce){.mathbg span{animation:none}}
 .hero small{letter-spacing:.2em;text-transform:uppercase;opacity:.8}
 .hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,6vw,4.2rem);margin:12px 0}
 .hero p{max-width:720px;margin:0 auto 30px;opacity:.9;font-size:1.1rem}
@@ -154,8 +159,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 </header>
 
 <section class="hero">
+  <div class="mathbg" id="mathbg" aria-hidden="true"></div>
   <div class="wrap">
-    <small>MNIT Jaipur</small>
     <h1>Welcome to M<span style="color:#3fc1e8">AI</span>TRI Lab</h1>
     <p><b>M</b>athematics and <b>A</b>rtificial <b>I</b>ntelligence for <b>T</b>heoretical <b>R</b>easoning and <b>I</b>nnovation</p>
     <a class="btn" href="#research">Our Research</a>
@@ -424,6 +429,15 @@ const renderDetail=()=>{const a=areas.find(x=>x.id===openArea);
 rcards.onclick=e=>{const b=e.target.closest(".rcard");if(!b)return;openArea=openArea===b.dataset.k?null:b.dataset.k;renderCards();renderDetail();
  if(openArea)rdetail.scrollIntoView({behavior:"smooth",block:"start"});};
 renderCards();renderDetail();
+
+// Hero background: faint maths symbols scattered behind the title (deterministic layout)
+(()=>{const sym=["∫","∑","∂","π","∞","∇","λ","σ","α","β","θ","μ","√x","f(x)","dy/dx","e<sup>iπ</sup>","Γ(α)","D<sup>α</sup>","∮","Δ","≈","∈","ℝ","∏","x²","‖w‖","σ(z)","∂L/∂w","E<sub>α,β</sub>","P(A|B)"];
+ let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;let h="";
+ for(let i=0;i<46;i++){const x=rnd()*100,y=rnd()*100;
+  if(x>22&&x<78&&y>28&&y<74){i--;continue;} // keep the centre clear for the heading
+  const sz=14+rnd()*30,op=.07+rnd()*.13,r=(rnd()*40-20).toFixed(0),d=(rnd()*-14).toFixed(1);
+  h+=`<span style="left:${x.toFixed(1)}%;top:${y.toFixed(1)}%;font-size:${sz.toFixed(0)}px;opacity:${op.toFixed(2)};--r:${r}deg;animation-delay:${d}s">${sym[i%sym.length]}</span>`;}
+ mathbg.innerHTML=h;})();
 </script>
 </body>
 </html>

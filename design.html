@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Walkthrough · MAITRI Lab</title>
+<link rel="icon" href="images/maitri_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="product.css">
+<style>
+.phero{background:linear-gradient(135deg,#0b2545,#0b6e99)}
+.phero .wrap{display:block}
+.phero h1{max-width:22ch}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.toc a{background:rgba(255,255,255,.14);color:#fff;font-weight:600;font-size:.88rem;padding:6px 14px;border-radius:18px}
+.toc a:hover{background:rgba(255,255,255,.26)}
+.prose{max-width:76ch}
+.prose p{margin-bottom:12px}
+.dec{display:grid;gap:16px}
+.d{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff;display:grid;grid-template-columns:auto 1fr;gap:18px}
+.d .num{width:40px;height:40px;border-radius:12px;background:var(--accent2);color:var(--accent);display:grid;place-items:center;font-weight:800;font-variant-numeric:tabular-nums}
+.d h3{font-size:1.08rem;margin-bottom:6px}
+.d p{color:var(--muted);font-size:.94rem;margin-bottom:6px}
+.d p b{color:var(--ink)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
+.flow span{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600;font-size:.9rem}
+.flow i{color:var(--accent);font-style:normal;font-weight:800}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.stack div{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.stack b{display:block;margin-bottom:4px}
+.stack span{color:var(--muted);font-size:.9rem}
+details{border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 20px}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--accent);font-weight:800}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);padding-bottom:16px;font-size:.94rem}
+.links2{display:flex;flex-wrap:wrap;gap:10px}
+.links2 a{border:1px solid var(--accent);color:var(--accent);font-weight:600;border-radius:20px;padding:7px 16px;font-size:.9rem}
+.links2 a:hover{background:var(--accent);color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="back" href="index.html">← MAITRI Lab website</a>
+  <span class="brand"><img src="images/maitri_logo.png" alt="">Design walkthrough</span>
+</div></header>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#7fd6f2">Project walkthrough</div>
+    <h1>How the MAITRI Lab website was designed and built</h1>
+    <p class="lead">From a hand-drawn sketch to a deployed, multi-page research lab website: the decisions I made, why I made them, and how I prepared to explain the project in an interview.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#brief">The brief</a><a href="#process">Process</a><a href="#decisions">Design decisions</a><a href="#tech">Tech stack</a><a href="#challenges">Challenges</a><a href="#interview">Interview preparation</a>
+    </nav>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap prose">
+    <h2>The brief</h2>
+    <p>Our lab in the Department of Mathematics, MNIT Jaipur, led by Dr. Priyanka Harjule, had no website. The goal was a frontend-only site in the style of the van der Schaar Lab website that presents the lab's mission, people, research, products, publications and patents, and that can be shared with a single link.</p>
+    <p>The starting point was a hand-drawn sketch: university logo and lab logo in the header, a welcome banner, mission and introduction, recent papers, our work, our patents, and our team led by the PI.</p>
+    <div class="flow"><span>Hand sketch</span><i>→</i><span>Single-page prototype</span><i>→</i><span>Real content from MNIT profile</span><i>→</i><span>Name + logo</span><i>→</i><span>Research, products, people pages</span><i>→</i><span>GitHub Pages</span></div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--soft)">
+  <div class="wrap prose">
+    <h2>Process</h2>
+    <p><b>1. Prototype from the sketch.</b> I first built one page that followed the sketch section by section with placeholder content, to agree on structure before polishing anything.</p>
+    <p><b>2. Replace placeholders with verified content.</b> The PI profile, publications, projects, patents and the list of supervised scholars (with photos) were taken from the official MNIT department pages, so every fact on the site has a source. Paper links were matched to DOIs through Crossref, and every dataset link was checked before it went on the page.</p>
+    <p><b>3. Iterate with feedback.</b> I shared the site with lab members, collected feedback and changed it in small steps: section order, wording, colours, logo, background and page structure.</p>
+    <p><b>4. Deploy and keep it editable.</b> The site is a Git repository deployed on GitHub Pages, so each change is one commit and the public link never changes.</p>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="wrap">
+    <h2>Key design decisions</h2>
+    <p class="sub">Each decision below lists what I chose, the alternatives, and why.</p>
+    <div class="dec">
+      <div class="d"><span class="num">1</span><div><h3>Name: ABC → Arogya → MAITRI</h3><p>The placeholder "ABC Lab" first became <b>आरोग्य (Arogya, "good health")</b>. A web check showed "Arogya AI" is already used by several companies, including Reliance's Jio Arogya AI in the same field of AI eye screening, and the name only described health while the lab also works on LLMs and epidemic modelling.</p><p>I chose <b>MAITRI</b>: Mathematics and Artificial Intelligence for Theoretical Reasoning and Innovation. It is a real word (मैत्री, friendship), the acronym describes the whole lab, and it contains "AI" in its middle, which the design highlights in colour everywhere.</p></div></div>
+      <div class="d"><span class="num">2</span><div><h3>Logo: a seal with an integral made of neurons</h3><p>I explored more than 20 logo variants (bilingual Hindi/English wordmarks, neural-network letters, gradients) and checked each one for readability. Mixed-script versions such as "AIरोग्य" were misread as "A-I-rogya", so readability won over cleverness.</p><p>The final logo is a <b>round seal</b> that matches the round MNIT logo, with the full name around the ring and an <b>integral sign whose ends are neurons</b> at the centre: calculus and AI in one symbol.</p></div></div>
+      <div class="d"><span class="num">3</span><div><h3>Information architecture: summary first, detail on demand</h3><p>The homepage shows short summaries; detail opens only when asked for. Research areas are four large cards that expand on click, publications show the 4 most recent papers with a "Show all (46)" list and type filters, and each product and graduate has its own page.</p><p>Section order follows what a visitor wants first: who we are, who leads the lab, what we have built, what we research, then publications and patents.</p></div></div>
+      <div class="d"><span class="num">4</span><div><h3>Hero background without overlaps</h3><p>The banner has a neural-network "constellation" with maths and AI symbols (Dᵅ, Γ(α), σ(z), ∂L/∂w). Random placement made lines cross the heading and symbols collide, so I wrote a small layout algorithm: it measures the heading's real width, keeps nodes a minimum distance apart, connects only near neighbours whose lines avoid the heading, and places each symbol only where it clears every node, line and other symbol. It re-runs on resize, so it works on any screen size.</p></div></div>
+      <div class="d"><span class="num">5</span><div><h3>Real, verifiable content</h3><p>Every paper has its authors and a DOI link where one exists; every public dataset (43 across retina, chest X-ray, dengue and language models) links to its original repository and was checked before publishing. Links that did not respond were left out rather than shown broken.</p></div></div>
+      <div class="d"><span class="num">6</span><div><h3>Product pages that show real-world impact</h3><p>Clicking a product opens its own page instead of leaving the site. ChakshuRakshak AI's page shows the Government of Rajasthan–approved clinical pilot at SMS Hospital, Jaipur, the four events where it was presented, and the papers and patent behind it. SilicoShield AI's page shows its funded projects, patents and papers.</p></div></div>
+      <div class="d"><span class="num">7</span><div><h3>Privacy choices</h3><p>Personal emails appear only on each person's own profile page, not on the homepage. The government approval letter is summarised rather than published as a document.</p></div></div>
+      <div class="d"><span class="num">8</span><div><h3>Visual system</h3><p>A deep navy-to-blue palette for trust and science, one bright cyan accent reserved for "AI", Playfair Display for headings with Inter for body text, and the same card, chip and button styles on every page so the site feels like one product.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" style="background:var(--soft)">
+  <div class="wrap">
+    <h2>Tech stack</h2>
+    <p class="sub">Deliberately simple: no framework, no build step, nothing to install.</p>
+    <div class="stack">
+      <div><b>HTML, CSS, JavaScript</b><span>Plain files; content lives in small JavaScript arrays so a paper or person can be added in one line.</span></div>
+      <div><b>GitHub Pages</b><span>Free hosting with HTTPS; every change is a Git commit, and a custom domain can be added later.</span></div>
+      <div><b>Responsive layout</b><span>CSS grid and flexbox; cards stack to one column on phones.</span></div>
+      <div><b>Accessibility</b><span>Real buttons for interactive cards, aria-expanded states, visible focus outlines, alt text, and reduced-motion support for animations.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="challenges">
+  <div class="wrap prose">
+    <h2>Challenges and how I solved them</h2>
+    <p><b>Sharing before going public.</b> The first private preview link could not be opened by friends, so I moved the site to GitHub Pages, which gives a public, view-only link.</p>
+    <p><b>Browser caching.</b> After updates, some viewers still saw old pages. I verified changes on the live server and explained hard refresh (Cmd + Option + R).</p>
+    <p><b>Overlapping background graphics.</b> Solved with the collision-aware layout described above instead of random placement.</p>
+    <p><b>Name collision.</b> Checked the web for existing labs and products before committing to a name, which led to MAITRI.</p>
+  </div>
+</section>
+
+<section id="interview" style="background:var(--soft)">
+  <div class="wrap">
+    <h2>How I prepared for the interview</h2>
+    <p class="sub">I prepared by being able to explain every decision on this page in my own words, re-checking all facts on the site against their sources, and practising answers to the questions below.</p>
+    <details><summary>Walk me through the project in two minutes.</summary><p>Our lab had no website. I turned a hand-drawn sketch into a deployed multi-page site: a homepage with team, products, research areas, publications and patents, plus separate pages for the PI, two PhD graduates and two AI products. I used real data from MNIT's official pages, designed the MAITRI name and logo, and deployed it on GitHub Pages so it can be shared with one link.</p></details>
+    <details><summary>Why plain HTML/CSS/JS and not React?</summary><p>The site is mostly static content that must load fast and be editable by lab members without a build tool. A framework would add complexity without adding value here. Content is kept in JavaScript arrays, which gives most of the benefit of components with none of the setup.</p></details>
+    <details><summary>How did you keep the hero background from overlapping the text?</summary><p>I measure the heading's actual text width, define a keep-out box, and place nodes, lines and symbols only where they pass distance checks against the box, nodes, lines and each other. The layout uses a fixed random seed so it looks the same on every load, and it re-runs when the window is resized.</p></details>
+    <details><summary>How did you make sure the content is correct?</summary><p>Every publication, patent and project came from the PI's official MNIT profile; DOIs were matched through Crossref; dataset links were opened and checked; and facts about the clinical pilot came from the approval letter. Anything I could not verify, I left out.</p></details>
+    <details><summary>Why did you change the lab name?</summary><p>"Arogya AI" was already used by several companies, including a large one in the same field, and it described only healthcare. MAITRI's acronym covers all of the lab's work and the word itself is meaningful in Hindi.</p></details>
+    <details><summary>How is the site made accessible and mobile-friendly?</summary><p>Grid layouts collapse to one column on small screens, interactive cards are real buttons with aria-expanded, focus outlines are visible, images have alt text, and animations stop for users who prefer reduced motion.</p></details>
+    <details><summary>What would you add next?</summary><p>A custom domain, a news and events section, a simple way for lab members to update content (for example a JSON file or a headless CMS), and analytics to see which research areas visitors explore.</p></details>
+    <div class="links2" style="margin-top:26px">
+      <a href="index.html">Open the website</a>
+      <a href="https://github.com/MansiMalhan/maitri-lab" target="_blank" rel="noopener">Source code on GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Design walkthrough · MAITRI Lab website · Built by Mansi Malhan</div></footer>
+</body>
+</html>

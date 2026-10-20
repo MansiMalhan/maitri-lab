@@ -80,6 +80,13 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 
 /* Patents */
 #research{background:var(--soft)}
+    .news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .nitem{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .nitem:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(11,110,153,.14);border-color:var(--accent)}
+    .nitem .ndate{font-size:.78rem;font-weight:600;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+    .nitem h3{font-size:1.05rem;line-height:1.35}
+    .nitem p{color:var(--muted);font-size:.9rem}
+    .nitem .nlink{margin-top:auto;color:var(--accent);font-weight:600;font-size:.86rem;padding-top:6px}
 .rcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:1000px){.rcards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.rcards{grid-template-columns:1fr}}
@@ -153,7 +160,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   <div class="wrap nav">
     <a class="brand" href="https://www.mnit.ac.in" target="_blank"><img src="images/mnit_logo.png" alt="MNIT Jaipur logo" style="width:56px;height:56px"><span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">MNIT</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted)">JAIPUR</span></span></a>
     <nav class="links">
-      <a href="#about">About</a><a href="#team">Team</a><a href="#work">Products</a><a href="#research">Research</a><a href="#papers">Publications</a>
+      <a href="#about">About</a><a href="#news">News</a><a href="#team">Team</a><a href="#work">Products</a><a href="#research">Research</a><a href="#papers">Publications</a>
       <a href="#patents">Patents</a>
     </nav>
     <a class="brand" href="#"><span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">M<span style="color:var(--accent)">AI</span>TRI</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted);margin-right:-.35em">LAB</span></span><img src="images/maitri_logo.png" alt="MAITRI Lab logo" style="width:58px;height:58px"></a>
@@ -177,13 +184,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
   </div>
 </section>
 
+<section id="news">
+  <div class="wrap">
+    <h2>News &amp; Information</h2>
+    <p class="sub">Latest updates from the lab — milestones, deployments, awards and announcements.</p>
+    <div class="news" id="newsList"></div>
+  </div>
+</section>
+
 <section id="team">
   <div class="wrap">
     <h2>Our Team</h2>
-    <p class="sub">Led by our principal investigator, supported by a team of researchers.</p>
     <div class="lead" style="cursor:pointer" onclick="if(event.target.tagName!=='A')location.href='profile.html'">
       <img class="avatar" style="object-fit:cover" src="images/people/mnitjas345.png" alt="Dr. Priyanka Harjule">
-      <div><small style="opacity:.8;letter-spacing:.15em">LED BY</small><h3 style="font-size:1.6rem">Dr. Priyanka Harjule</h3><p style="opacity:.9">Assistant Professor, Department of Mathematics, MNIT Jaipur<br>Fractional Calculus · Machine Learning · Computational Statistics</p>
+      <div><small style="opacity:.8;letter-spacing:.15em">LED BY</small><h3 style="font-size:1.6rem">Dr. Priyanka Harjule</h3><p style="opacity:.9">Assistant Professor, Department of Mathematics, MNIT Jaipur<br>Fractional Calculus · Artificial Intelligence · Machine Learning · Deep Learning · Medical Image Processing · Computational Statistics · Mathematical Modelling</p>
       <a class="btn" style="margin-top:14px" href="profile.html">View Full Profile →</a></div>
     </div>
     <div class="grid" id="teamList"></div>
@@ -239,6 +253,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 
 <script>
 // Edit these arrays to update content
+const news=[
+  // ["Date", "Headline", "Ek line ka detail", "link (khaali chhod do to koi link nahi)", "link ka text"]
+  ["October 2026","MAITRI Lab website goes live","The lab is now online at maitri-lab.com, bringing together our research areas, publications, patents and products in one place.","","" ],
+  ["February 2026","Two patents published","Our AI frameworks for diabetic retinopathy grading and silicosis classification were published by the Controller General of Patents, Designs &amp; Trade Marks, Govt. of India.","#patents","See all patents →"],
+  ["2026","Two PhD degrees awarded","Dr. Rinki Sharma and Dr. Mukesh Delu completed their doctoral work on fractional derivatives in neural networks and retinal vasculature analysis.","#team","Meet the team →"],
+  ["Ongoing","ChakshuRakshak AI in clinical validation","Our diabetic retinopathy screening system is being validated with clinicians at SMS Hospital, Jaipur.","chakshurakshak.html","Learn more →"],
+];
 const work=[
   ["images/products/cr-logo.svg","ChakshuRakshak AI","AI-based diabetic retinopathy screening from retinal fundus images. Now in clinical validation at SMS Hospital, Jaipur.","chakshurakshak.html"],
   ["images/products/ss-logo.svg","SilicoShield AI","AI-assisted silicosis detection from chest X-rays, built on our fractional-optimiser research.","silicoshield.html"],
@@ -320,6 +341,7 @@ pubChips.innerHTML=kinds.map(k=>`<button class="chip" data-f="${k}">${k} (${k===
 pubChips.onclick=e=>{const c=e.target.closest(".chip");if(c){pubFilter=c.dataset.f;renderAll();}};
 pubMore.textContent=`Show all publications (${pubs.length})`;
 pubMore.onclick=()=>{const open=pubAll.hidden;pubAll.hidden=!open;pubMore.textContent=open?"Show less":`Show all publications (${pubs.length})`;pubMore.setAttribute("aria-expanded",open);if(open)renderAll();};
+newsList.innerHTML=news.map(([d,t,x,u,lt])=>`<div class="nitem"><span class="ndate">${d}</span><h3>${t}</h3><p>${x}</p>${u?`<a class="nlink" href="${u}">${lt||"Read more →"}</a>`:""}</div>`).join("");
 workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}"><div class="icon" style="background:#fff;border:1px solid var(--line)"><img src="${i}" alt="" style="width:34px;height:34px"></div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Learn more →</span></a>`).join("");
 patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
 const card=([n,r,d,e,img])=>`<div class="member">${img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p><a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;

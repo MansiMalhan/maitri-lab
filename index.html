@@ -23,7 +23,22 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdro
 .brand{display:flex;align-items:center;gap:12px;font-weight:700}
 .links{display:flex;gap:26px;font-size:.95rem;font-weight:500}
 .links a:hover{color:var(--accent)}
-@media(max-width:800px){.links{display:none}}
+.menubtn{display:none;background:none;border:0;cursor:pointer;padding:10px;border-radius:10px;flex-shrink:0}
+.menubtn span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s}
+.menubtn span+span{margin-top:5px}
+header.open .menubtn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header.open .menubtn span:nth-child(2){opacity:0}
+header.open .menubtn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(prefers-reduced-motion:reduce){.menubtn span{transition:none}}
+@media(max-width:800px){
+  .links{display:none}
+  .menubtn{display:block}
+  .nav{gap:8px}
+  .nav .brand img{width:44px!important;height:44px!important}
+  header.open .links{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(11,110,153,.12);font-size:1rem}
+  header.open .links a{padding:14px 20px;border-top:1px solid var(--line)}
+  header.open .links a:first-child{border-top:0}
+}
 
 /* Hero */
 .hero{background:linear-gradient(135deg,#0b2545 0%,#0b6e99 100%);color:#fff;padding:120px 0 110px;text-align:center;position:relative;overflow:hidden}
@@ -159,10 +174,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 <header>
   <div class="wrap nav">
     <a class="brand" href="https://www.mnit.ac.in" target="_blank"><img src="images/mnit_logo.png" alt="MNIT Jaipur logo" style="width:56px;height:56px"><span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">MNIT</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted)">JAIPUR</span></span></a>
-    <nav class="links">
+    <nav class="links" id="navlinks">
       <a href="#about">About</a><a href="#team">Team</a><a href="#work">Products</a><a href="#research">Research</a><a href="#papers">Publications</a>
       <a href="#patents">Patents</a><a href="#news">News</a>
     </nav>
+    <button class="menubtn" id="menubtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
     <a class="brand" href="#"><span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.1"><span style="font-weight:800;font-size:1.25rem;letter-spacing:.03em">M<span style="color:var(--accent)">AI</span>TRI</span><span style="font-size:.7rem;letter-spacing:.35em;color:var(--muted);margin-right:-.35em">LAB</span></span><img src="images/maitri_logo.png" alt="MAITRI Lab logo" style="width:58px;height:58px"></a>
   </div>
 </header>
@@ -491,6 +507,13 @@ renderCards();renderDetail();
    syms.map(s=>`<text x="${s.p[0].toFixed(1)}" y="${s.p[1].toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="Playfair Display, serif" font-size="${s.sz.toFixed(0)}" fill="#bfe9f7" opacity="${s.op.toFixed(2)}">${s.label}</text>`).join("")+`</svg>`;};
  let tm;addEventListener("resize",()=>{clearTimeout(tm);tm=setTimeout(draw,150)});
  (document.fonts?document.fonts.ready:Promise.resolve()).then(draw);draw();})();
+// Mobile menu
+const hdr=document.querySelector("header"),mbtn=document.getElementById("menubtn");
+const setMenu=o=>{hdr.classList.toggle("open",o);mbtn.setAttribute("aria-expanded",o);mbtn.setAttribute("aria-label",o?"Close menu":"Open menu")};
+mbtn.addEventListener("click",()=>setMenu(!hdr.classList.contains("open")));
+navlinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
+addEventListener("resize",()=>{if(innerWidth>800)setMenu(false)});
 </script>
 </body>
 </html>

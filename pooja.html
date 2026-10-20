@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ms. Pooja · MAITRI Lab</title>
+<link rel="icon" href="images/maitri_logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="product.css">
+<style>
+.phero{background:linear-gradient(135deg,#0b2545,#0b6e99)}
+.phero .wrap{grid-template-columns:auto 1fr;gap:40px}
+@media(max-width:700px){.phero .wrap{grid-template-columns:1fr}}
+.ph{width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.35);background:#cfd8e3}
+.phero h1{margin:6px 0 8px}
+.aff{color:#d6e6f2;font-size:1.02rem}
+.badge{display:inline-block;background:rgba(255,255,255,.15);color:#fff;font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.contact{margin-top:14px;color:#d6e6f2;font-size:.95rem;display:grid;gap:2px}
+.contact b{color:#fff;user-select:all}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.bio p{max-width:70ch;font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{background:var(--accent2);color:var(--accent);font-weight:600;font-size:.85rem;padding:5px 12px;border-radius:16px}
+.thesis{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:22px;background:var(--soft)}
+.thesis small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.thesis h3{font-family:"Playfair Display",serif;font-size:1.3rem;margin:8px 0 12px;line-height:1.35}
+.thesis dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.92rem}
+.thesis dt{color:var(--muted)}
+.timeline{list-style:none;display:grid;gap:12px;margin-top:6px}
+.timeline li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.timeline .d{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
+.timeline b{display:block}
+.timeline span{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="back" href="index.html#team">← MAITRI Lab · Team</a>
+  <span class="brand"><img src="images/maitri_logo.png" alt="">MAITRI Lab</span>
+</div></header>
+
+<section class="phero">
+  <div class="wrap">
+    <img class="ph" src="images/people/2023RMA9040_20230808_130142.jpg" alt="Ms. Pooja">
+    <div>
+      <span class="badge">PhD Scholar · MNIT Jaipur</span>
+      <h1>Ms. Pooja</h1>
+      <p class="aff">Research Scholar, Department of Mathematics<br>Malaviya National Institute of Technology, Jaipur</p>
+      <div class="contact"><div>Email: <b>2023RMA9040@mnit.ac.in</b></div><div>Enrolment No.: <b>2023RMA9040</b></div></div>
+    </div>
+  </div>
+</section>
+<nav class="subnav" aria-label="On this page"><div class="wrap">
+  <a href="#about">About</a><a href="#research">Doctoral research</a><a href="#papers">Papers</a>
+</div></nav>
+
+<section id="about">
+  <div class="wrap two">
+    <div class="bio">
+      <h2>About</h2>
+      <p>Pooja is a PhD scholar in the Department of Mathematics at Malaviya National Institute of Technology (MNIT) Jaipur, working with Dr. Priyanka Harjule. Her research is in computational statistics and natural language processing: assessing how reliable BERT-based language models are on question answering tasks, and the statistical analysis of socio-economic data, including a study of the effect of issued loans on the income of self-help group women in Rajasthan. Her work has appeared in the Journal of Experimental &amp; Theoretical Artificial Intelligence and at ICT4SD 2023, Goa.</p>
+      <div class="chips"><span>Computational statistics</span><span>Natural language processing</span><span>Language models</span><span>Question answering</span><span>Applied data analysis</span></div>
+    </div>
+    <div>
+      <h2>At MAITRI Lab</h2>
+      <ul class="timeline"><li><span class="d"></span><div><b>Ph.D. (ongoing), Mathematics</b><span>MNIT Jaipur · since 2023 · Enrolment 2023RMA9040</span></div></li><li><span class="d"></span><div><b>Supervisor</b><span>Dr. Priyanka Harjule, Department of Mathematics, MNIT Jaipur</span></div></li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="research" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="thesis" style="background:#fff">
+      <small>Doctoral research · ongoing</small>
+      <h3>Reliability of language models for question answering, and computational statistics for socio-economic data</h3>
+      <dl><dt>Institute</dt><dd>Department of Mathematics, MNIT Jaipur</dd><dt>Supervisor</dt><dd><a href="profile.html" style="color:var(--accent);font-weight:600">Dr. Priyanka Harjule</a></dd><dt>Enrolled</dt><dd>2023</dd></dl>
+    </div>
+  </div>
+</section>
+
+<section id="papers">
+  <div class="wrap">
+    <h2>Research papers</h2>
+    <p class="sub">Publications from doctoral research at MAITRI Lab. Click a paper to read it.</p>
+    <div class="plist"><div class="pitem"><span class="yr">2026</span><div><b>Assessing reliability of BERT-based models on question answering tasks</b><div class="au">Pooja Yadav, Priyanka Harjule, Basant Agarwal, Marko Robnik-Šikonja</div><div class="ve">J. of Experimental &amp; Theoretical AI (Taylor &amp; Francis)</div></div><a class="go" href="https://doi.org/10.1080/0952813X.2026.2716084" target="_blank" rel="noopener">Read paper ↗</a></div><div class="pitem"><span class="yr">2023</span><div><b>Impact of Issued Loans on the Income of Self-Help Group Women in Rajasthan</b><div class="au">Pooja, Priyanka Harjule, Basant Agarwal, S. Nayak</div><div class="ve">ICT4SD 2023, Goa (Springer)</div></div><span></span></div></div>
+  </div>
+</section>
+
+<footer><div class="wrap">Ms. Pooja · MAITRI Lab, Department of Mathematics, MNIT Jaipur</div></footer>
+</body>
+</html>

@@ -18,45 +18,81 @@
   <div class="wrap">
     <div>
       <div class="logo"><img src="images/products/cr-logo.svg" alt="ChakshuRakshak AI logo"><span>ChakshuRakshak AI</span></div>
-      <div class="eyebrow">AI-powered retinal screening</div>
-      <h1>Detect diabetic retinopathy before it's too late</h1>
-      <p class="lead">Upload a colour fundus photograph and get an ICDR diabetic retinopathy grade, vessel and lesion maps, and an explainable confidence score in about three seconds. Built on the lab's fractional enhancement and vascular-geometry research.</p>
+      <div class="eyebrow">AI-powered retinal analysis</div>
+      <h1>Diabetic retinopathy, macular edema and more, from one fundus photograph</h1>
+      <p class="lead">Three analyses in one platform: an ICDR diabetic retinopathy grade with vessel and lesion maps, a diabetic macular edema grade with a hard-exudate map, and a beta screen for other retinal diseases. Upload one or many fundus photographs and download a printable report for each analysis. Built on the lab's fractional enhancement and vascular-geometry research.</p>
       <div class="ctas">
         <a class="btn" href="https://www.chakshurakshakai.com" target="_blank" rel="noopener">Try ChakshuRakshak AI ↗</a>
         <a class="btn ghost" href="#research">Research behind it</a>
       </div>
       <div class="facts">
+        <div><b>3</b><span>Analyses: DR · DME · multi-disease</span></div>
         <div><b>ICDR 0–4</b><span>DR grading scale</span></div>
         <div><b>SMS Hospital</b><span>Live clinical pilot</span></div>
         <div><b>1</b><span>Patent published</span></div>
       </div>
     </div>
     <div class="pipe" aria-label="How a ChakshuRakshak AI screening works">
-      <div class="row"><span>1 · Upload</span><b>Colour fundus photograph</b></div>
-      <div class="row"><span>2 · Analyse</span><b>AI retinal screening</b></div>
-      <div class="row"><span>3 · Result</span><b>DR grade + referral advice</b></div>
-      <div class="row"><span>Time</span><span class="ok">About 3 seconds per image</span></div>
+      <div class="row"><span>1 · Choose</span><b>DR · DME · Multi-disease (beta)</b></div>
+      <div class="row"><span>2 · Upload</span><b>One or more fundus photographs</b></div>
+      <div class="row"><span>3 · Result</span><b>Grade, maps and referral advice</b></div>
+      <div class="row"><span>4 · Report</span><b>Printable PDF with patient details</b></div>
+      <div class="row"><span>Time</span><span class="ok">A few seconds per image</span></div>
     </div>
 </div>
   </div>
 </section>
 <nav class="subnav" aria-label="On this page"><div class="wrap">
-  <a href="#how">What it does</a><a href="#validation">Clinical validation</a><a href="#events">Presentations</a><a href="#research">Research behind it</a><a href="https://www.chakshurakshakai.com" target="_blank" rel="noopener" class="try">Try it ↗</a>
+  <a href="#how">What it does</a><a href="#features">Features</a><a href="#validation">Clinical validation</a><a href="#events">Presentations</a><a href="#research">Research behind it</a><a href="https://www.chakshurakshakai.com" target="_blank" rel="noopener" class="try">Try it ↗</a>
 </div></nav>
 
 <section id="how">
   <div class="wrap">
-    <h2>What it does</h2>
-    <p class="sub">A screening aid for ophthalmologists and diabetic eye-screening programmes. Results are always reviewed by a qualified ophthalmologist.</p>
-    <div class="feat">
-      <div><span class="n">1</span><h3>Fast screening</h3><p>Upload a colour fundus photograph and get a result in about three seconds.</p></div>
-      <div><span class="n">2</span><h3>Clear, graded result</h3><p>A diabetic retinopathy grade on the ICDR 0–4 scale with confidence and a referral recommendation.</p></div>
-      <div><span class="n">3</span><h3>Research-backed</h3><p>Built on the lab's fractional-order image enhancement and retinal vessel research.</p></div>
+    <h2>Three analyses, one platform</h2>
+    <p class="sub">A screening aid for ophthalmologists and diabetic eye-screening programmes. Pick the analysis you need; each runs its own model on the images you give it. Results are always reviewed by a qualified ophthalmologist.</p>
+    <div class="trio">
+      <div class="an an-dr">
+        <span class="tag2">Diabetic retinopathy</span>
+        <h3>DR grading and segmentation</h3>
+        <p>A five-stage diabetic retinopathy grade on the ICDR 0–4 scale (No DR to PDR) with a confidence score and referral advice.</p>
+        <ul><li>Retinal vessel map and binary vessel segmentation</li><li>Lesion maps for microaneurysms, haemorrhages, hard and soft exudates (FLA-Net)</li><li>Both eyes or several images in one go</li></ul>
+      </div>
+      <div class="an an-dme">
+        <span class="tag2">Diabetic macular edema</span>
+        <h3>DME grading with GRACE-Net</h3>
+        <p>Grades each image as no DME, or hard exudates away from or near the fovea, with the probability of each grade.</p>
+        <ul><li>Hard-exudate overlay on the fundus image</li><li>Presence scores for MA, HE, EX and SE</li><li>Protocol-aware fusion of a direct and a grading-rule prediction, with an agreement check</li></ul>
+      </div>
+      <div class="an an-md">
+        <span class="tag2">Multi-disease · beta</span>
+        <h3>Look-alike disease screen</h3>
+        <p>A research preview that looks past diabetic retinopathy for conditions that can be mistaken for it.</p>
+        <ul><li>AMD, myopic changes, retinal vein occlusion and chorioretinal scarring</li><li>Referable-DR and macular-edema probabilities</li><li>Overlays of DR lesions and other-disease signs</li></ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="val" id="validation">
+<section id="features" style="background:var(--soft)">
+  <div class="wrap">
+    <h2>Built for screening clinics</h2>
+    <p class="sub">The same workflow for all three analyses, from upload to report.</p>
+    <div class="feat">
+      <div><span class="n">1</span><h3>Many images at once</h3><p>Upload both eyes or a whole set of fundus photographs. Results open with a summary table and a full panel for every image.</p></div>
+      <div><span class="n">2</span><h3>A report for every analysis</h3><p>Add patient details and download a printable PDF report for DR, DME or the multi-disease screen, with the images and findings.</p></div>
+      <div><span class="n">3</span><h3>Maps you can check</h3><p>Every result shows the overlay it rests on, such as vessels, lesions or exudates, next to the original photograph.</p></div>
+      <div><span class="n">4</span><h3>No account needed</h3><p>Run any analysis as a guest. Sign in to keep your DR reports in My Reports.</p></div>
+      <div><span class="n">5</span><h3>Works on any device</h3><p>A web app that runs in the browser on desktops, tablets and phones, with nothing to install.</p></div>
+      <div><span class="n">6</span><h3>Research-backed</h3><p>Built on the lab's fractional-order image enhancement and retinal vessel research, published in peer-reviewed journals.</p></div>
+    </div>
+    <div class="soon">
+      <b>Coming soon</b>
+      <span>Glaucoma</span><span>Cataract</span><span>OCT segmentation &amp; analysis</span><span>FFA analysis</span><span>Hypertensive retinopathy</span><span>Retinopathy of prematurity</span><span>Retinal detachment</span><span>Keratoconus</span>
+    </div>
+  </div>
+</section>
+
+<section id="validation">
   <div class="wrap">
     <div class="valgrid">
       <div>
@@ -114,7 +150,7 @@
 <section class="cta">
   <div class="wrap">
     <h2>Try it or work with us</h2>
-    <p>Hospitals, screening programmes and researchers interested in ChakshuRakshak AI can try the demo or write to us at <span class="mail">info@chakshurakshakai.com</span>.</p>
+    <p>Hospitals, screening programmes and researchers interested in ChakshuRakshak AI can try the demo or write to us at <span class="mail">info@chakshurakshakai.com</span> or <span class="mail">priyanka.maths@mnit.ac.in</span>.</p>
     <div class="ctas"><a class="btn" href="https://www.chakshurakshakai.com" target="_blank" rel="noopener">Open ChakshuRakshak AI ↗</a><a class="btn ghost" href="index.html">Back to MAITRI Lab</a></div>
   </div>
 </section>

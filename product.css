@@ -121,3 +121,15 @@ section[id]{scroll-margin-top:130px}
 .comp b{font-size:1.1rem}
 .comp p{font-size:.87rem;color:var(--muted)}
 .tag2{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#0f8a78;background:#e3f6f3;padding:2px 9px;border-radius:10px}
+/* ChakshuRakshak: three analyses + coming soon */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.trio{grid-template-columns:1fr}}
+.an{border:1px solid var(--line);border-top:4px solid var(--pc);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px;background:#fff}
+.an h3{font-size:1.12rem}
+.an p{color:var(--muted);font-size:.93rem}
+.an ul{padding-left:18px;color:var(--ink);font-size:.9rem;display:grid;gap:5px;margin-top:4px}
+.an-dme{border-top-color:#f6815e}.an-dme .tag2{color:#b9502f;background:#fdeee8}
+.an-md{border-top-color:#6b5bd2}.an-md .tag2{color:#52429f;background:#efecfb}
+.soon{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:30px}
+.soon b{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-right:6px}
+.soon span{font-size:.85rem;color:var(--muted);border:1px dashed #c3cad6;border-radius:20px;padding:5px 12px;background:#fff}

@@ -164,6 +164,25 @@ header.open .menubtn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .member span{color:var(--muted);font-size:.88rem}
 .mlink{display:block;transition:transform .2s,box-shadow .2s,border-color .2s}
 .mlink:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(11,110,153,.13);border-color:var(--accent)}
+/* Team hierarchy */
+.tier{display:flex;flex-direction:column;align-items:center;position:relative}
+.tier+.tier,#teamTiers>.tier{margin-top:28px;padding-top:34px}
+.tier+.tier::before,#teamTiers>.tier::before{content:"";position:absolute;top:0;left:50%;width:2px;height:22px;background:var(--line);transform:translateX(-50%)}
+.tier-label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:var(--accent2);padding:4px 14px;border-radius:20px;margin-bottom:18px}
+.tier .lead{margin-bottom:0;width:100%;flex-wrap:nowrap}
+.lead>div{flex:1;min-width:0}
+@media(max-width:620px){.tier .lead{flex-wrap:wrap;padding:28px;gap:18px}.lead>div{flex-basis:100%}}
+.trow{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;width:100%}
+.trow .member{width:270px;display:flex;flex-direction:column;align-items:center}
+.member h4{margin-bottom:2px}
+.member .since{display:inline-block;margin-top:6px;font-size:.75rem;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:1px 10px}
+.member .topic{font-size:.85rem;margin:10px 0 0;color:var(--ink)}
+.ri{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px}
+.ri i{font-style:normal;font-size:.72rem;background:var(--accent2);color:var(--accent);padding:2px 9px;border-radius:12px}
+.lead .ri{justify-content:flex-start}
+.lead .ri i{background:rgba(255,255,255,.15);color:#fff}
+.member .foot{margin-top:auto;padding-top:14px}
+@media(max-width:620px){.trow .member{width:100%}}
 
 footer{background:#0b2545;color:#c9d4e3;padding:40px 0;font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
@@ -204,14 +223,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 <section id="team">
   <div class="wrap">
     <h2>Our Team</h2>
-    <div class="lead" style="cursor:pointer" onclick="if(event.target.tagName!=='A')location.href='profile.html'">
-      <img class="avatar" style="object-fit:cover" src="images/people/mnitjas345.png" alt="Dr. Priyanka Harjule">
-      <div><small style="opacity:.8;letter-spacing:.15em">LED BY</small><h3 style="font-size:1.6rem">Dr. Priyanka Harjule</h3><p style="opacity:.9">Assistant Professor, Department of Mathematics, MNIT Jaipur<br>Fractional Calculus · Artificial Intelligence · Machine Learning · Deep Learning · Medical Image Processing · Computational Statistics · Mathematical Modelling</p>
-      <a class="btn" style="margin-top:14px" href="profile.html">View Full Profile →</a></div>
+    <p class="sub">The lab is led by Dr. Priyanka Harjule. Members are listed by seniority.</p>
+
+    <div class="tier">
+      <div class="tier-label">Principal Investigator</div>
+      <div class="lead" style="cursor:pointer" onclick="if(event.target.tagName!=='A')location.href='profile.html'">
+        <img class="avatar" style="object-fit:cover" src="images/people/mnitjas345.png" alt="Dr. Priyanka Harjule">
+        <div><h3 style="font-size:1.6rem">Dr. Priyanka Harjule</h3><p style="opacity:.9">Assistant Professor, Department of Mathematics, MNIT Jaipur</p>
+        <div class="ri"><i>Fractional Calculus</i><i>Artificial Intelligence</i><i>Machine Learning</i><i>Deep Learning</i><i>Medical Image Processing</i><i>Computational Statistics</i><i>Mathematical Modelling</i></div>
+        <a class="btn" style="margin-top:16px" href="profile.html">View Full Profile →</a></div>
+      </div>
     </div>
-    <div class="grid" id="teamList"></div>
-    <h3 style="margin:44px 0 18px;font-size:1.4rem">PhD Graduates</h3>
-    <div class="grid" id="alumniList"></div>
+
+    <div id="teamTiers"></div>
   </div>
 </section>
 
@@ -285,16 +309,44 @@ const patents=[
   ["Automated Classification System for Silicosis Using Deep Learning and Related Methods","Priyanka Harjule, Rinki Sharma, Rajesh Kumar","Reg. No. 202611024092","Published 28-02-2026"],
   ["SILICO-AI: An AI-Based Portable Computer-Aided Diagnostic System for Silicosis Disease","Kuldeep Singh, Faisel Mushtaq, Satyendra S Chouhan, Sandeep Mandia, Rajesh Kumar, Priyanka Harjule","Reg. No. 202311063986","Granted 02-09-2025"],
 ];
-const team=[
-  ["Ms. Parul Narera","PhD Scholar · 2026RMA9071","Application of mathematics, computer vision and machine learning","2026rma9071@mnit.ac.in","images/people/2026RMA9071_20260817_171921.jpg"],
-  ["Ms. Aishwarya Bhakar","PhD Scholar · 2026RMA9003","Statistical inference, deep learning, computer vision, medical image analysis","2026rma9003@mnit.ac.in","images/people/2026rma9003_20260818_125341.jpg"],
-  ["Ms. Mansi Malhan","PhD Scholar · 2025RMA9534","Applied mathematics in deep learning and medical imaging","2025rma9534@mnit.ac.in","images/people/2025RMA9534_20260821_161125.jpg"],
-  ["Ms. Pooja","PhD Scholar · 2023RMA9040","Computational statistics","2023RMA9040@mnit.ac.in","images/people/2023RMA9040_20230808_130142.jpg","pooja.html"],
-  ["Mr. Harshit","PhD Scholar · 2022RMA9061","Computational statistics","2022rma9061@mnit.ac.in","images/people/2022rma9061_20220823_163530.jpg","harshit.html"],
-];
-const alumni=[
-  ["Dr. Rinki Sharma","PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan","Thesis: Optimization of Neural Networks based on Fractional Derivatives","","rinki-sharma.html","images/people/2021RMA9567_20220521_114006.jpg"],
-  ["Dr. Mukesh Delu","PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan","Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications","","mukesh-delu.html","images/people/2022RMA9055_20220823_163407.jpg"],
+// Team below the PI, top to bottom. Each tier is one row; members appear in the order listed.
+// Member fields: name, role, since, topic (thesis / doctoral research), interests, email, img, page (profile link, optional)
+const tiers=[
+  {label:"PhD Graduates",members:[
+    {name:"Dr. Mukesh Delu",role:"PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan",
+     topic:"Thesis: Retinal Vasculature Analysis with Fractional Order Kernels: Techniques and Applications",
+     interests:["Fractional calculus","Medical image processing","Machine learning","Deep learning","Retinal imaging"],
+     img:"images/people/2022RMA9055_20220823_163407.jpg",page:"mukesh-delu.html"},
+    {name:"Dr. Rinki Sharma",role:"PhD Awarded 2026 · Assistant Professor, Dept. of College Education, Govt. of Rajasthan",
+     topic:"Thesis: Optimization of Neural Networks based on Fractional Derivatives",
+     interests:["Fractional calculus","Optimisation","Neural networks","Deep learning","Medical imaging"],
+     img:"images/people/2021RMA9567_20220521_114006.jpg",page:"rinki-sharma.html"},
+  ]},
+  {label:"PhD Scholars",members:[
+    {name:"Mr. Harshit",role:"PhD Scholar",since:"2022",
+     interests:["Mathematical modelling","Fractional calculus","Epidemic modelling","Physics-informed neural networks","Bayesian methods"],
+     email:"2022rma9061@mnit.ac.in",img:"images/people/2022rma9061_20220823_163530.jpg",page:"harshit.html"},
+    {name:"Ms. Pooja",role:"PhD Scholar",since:"2023",
+     interests:["Computational statistics","Natural language processing","Language models","Question answering"],
+     email:"2023RMA9040@mnit.ac.in",img:"images/people/2023RMA9040_20230808_130142.jpg",page:"pooja.html"},
+    {name:"Ms. Mansi Malhan",role:"PhD Scholar",since:"2025",
+     interests:["Applied mathematics","Deep learning","Medical imaging"],
+     email:"2025rma9534@mnit.ac.in",img:"images/people/2025RMA9534_20260821_161125.jpg"},
+  ]},
+  {label:"PhD Scholars · 2026 Cohort",members:[
+    {name:"Ms. Aishwarya Bhakar",role:"PhD Scholar",since:"2026",
+     interests:["Statistical inference","Deep learning","Computer vision","Medical image analysis"],
+     email:"2026rma9003@mnit.ac.in",img:"images/people/2026rma9003_20260818_125341.jpg"},
+    {name:"Ms. Parul Narera",role:"PhD Scholar",since:"2026",
+     interests:["Applied mathematics","Computer vision","Machine learning"],
+     email:"2026rma9071@mnit.ac.in",img:"images/people/2026RMA9071_20260817_171921.jpg"},
+  ]},
+  {label:"Junior Research Fellow",members:[
+    {name:"Mr. Abhishek",role:"Junior Research Fellow · Rajeevika–MNIT Jaipur project",since:"2026",
+     topic:"Project: Institutional Assessment of Rural Livelihood Institutions (Rajeevika, Govt. of Rajasthan)",
+     interests:["Applied statistics","Survey methodology","Socio-economic research","Rural development","Programme evaluation"],
+     img:"images/people/abhishek.jpg"},
+  ]},
 ];
 const ini=n=>n.split(" ").map(w=>w[0]).join("").slice(0,2);
 // Publications: full list from Dr. Harjule's MNIT profile (+ newer papers). [year, type, title, authors, venue, link]
@@ -360,14 +412,13 @@ pubMore.onclick=()=>{const open=pubAll.hidden;pubAll.hidden=!open;pubMore.textCo
 newsList.innerHTML=news.map(([d,t,x,u,lt])=>`<div class="nitem"><span class="ndate">${d}</span><h3>${t}</h3><p>${x}</p>${u?`<a class="nlink" href="${u}">${lt||"Read more →"}</a>`:""}</div>`).join("");
 workList.innerHTML=work.map(([i,n,d,u])=>`<a class="work" href="${u}"><div class="icon" style="background:#fff;border:1px solid var(--line)"><img src="${i}" alt="" style="width:34px;height:34px"></div><h3>${n}</h3><p>${d}</p><span style="display:inline-block;margin-top:12px;color:var(--accent);font-weight:600;font-size:.9rem">Learn more →</span></a>`).join("");
 patentList.innerHTML=patents.map(([t,a,n,st])=>`<div class="patent"><span class="tag" style="margin:0 0 10px;${st.startsWith("Granted")?"background:#e6f6ec;color:#1a7f43":""}">${st}</span><h3 style="font-size:1.05rem;margin-bottom:6px">${t}</h3><p style="color:var(--muted);font-size:.88rem;margin-bottom:6px">${a}</p><div class="no">${n} · Controller General of Patents, Designs &amp; Trade Marks, Govt. of India</div></div>`).join("");
-const card=([n,r,d,e,img,u])=>{
- const av=img?`<img class="avatar" style="object-fit:cover" src="${img}" alt="${n}">`:`<div class="avatar">${ini(n.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`;
- const head=`${av}<h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p>`;
- return u?`<a class="member mlink" href="${u}">${head}<span style="color:var(--accent);font-size:.82rem;display:block">${e}</span><span style="display:inline-block;margin-top:10px;color:var(--accent);font-weight:600;font-size:.9rem">View profile \u2192</span></a>`
-         :`<div class="member">${head}<a href="mailto:${e}" style="color:var(--accent);font-size:.82rem">${e}</a></div>`;
+const card=m=>{
+ const av=m.img?`<img class="avatar" style="object-fit:cover" src="${m.img}" alt="${m.name}">`:`<div class="avatar">${ini(m.name.replace(/^(Ms|Mr|Dr)\.\s*/,""))}</div>`;
+ const body=`${av}<h4>${m.name}</h4><span>${m.role}</span>${m.since?`<span class="since">Since ${m.since}</span>`:""}${m.topic?`<p class="topic">${m.topic}</p>`:""}<div class="ri">${(m.interests||[]).map(x=>`<i>${x}</i>`).join("")}</div>`;
+ return m.page?`<a class="member mlink" href="${m.page}">${body}<span class="foot" style="color:var(--accent);font-weight:600;font-size:.9rem">View profile \u2192</span></a>`
+   :`<div class="member">${body}${m.email?`<a class="foot" href="mailto:${m.email}" style="color:var(--accent);font-size:.82rem">${m.email}</a>`:""}</div>`;
 };
-teamList.innerHTML=team.map(card).join("");
-alumniList.innerHTML=alumni.map(([n,r,d,e,u,img])=>`<a class="member mlink" href="${u}"><img class="avatar" style="object-fit:cover" src="${img}" alt="${n}"><h4>${n}</h4><span>${r}</span><p style="font-size:.85rem;margin:8px 0">${d}</p>${e?`<span style="color:var(--accent);font-size:.82rem;display:block">${e}</span>`:""}<span style="display:inline-block;margin-top:10px;color:var(--accent);font-weight:600;font-size:.9rem">View profile →</span></a>`).join("");
+teamTiers.innerHTML=tiers.map(t=>`<div class="tier"><div class="tier-label">${t.label}</div><div class="trow">${t.members.map(card).join("")}</div></div>`).join("");
 
 // Research areas: overview, lab papers (with authors + DOI links), public datasets (links go to each dataset's original source)
 const IC={
